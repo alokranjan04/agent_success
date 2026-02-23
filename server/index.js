@@ -38,8 +38,9 @@ if (firebaseServiceAccount) {
 }
 
 const firestore = admin.apps.length ? admin.firestore() : null;
-const CONFIG_COLLECTION = 'admin_configuration';
-const CONFIG_DOC = 'agent_settings';
+const CONFIG_COLLECTION = 'agent_success_admin_configuration';
+const CONFIG_DOC = 'agent_success_agent_settings';
+const TRANSCRIPTS_COLLECTION = 'agent_success_transcripts';
 
 // Load config from Firestore
 async function loadConfigFromFirestore() {
@@ -64,6 +65,21 @@ async function saveConfigToFirestore(config) {
         console.log('[Firebase] Config saved to Firestore');
     } catch (e) {
         console.warn('[Firebase] Could not save config:', e.message);
+    }
+}
+
+// Save transcript/summary to Firestore
+async function saveTranscriptToFirestore(id, type, data) {
+    if (!firestore) return;
+    try {
+        await firestore.collection(TRANSCRIPTS_COLLECTION).doc(id).set({
+            ...data,
+            type,
+            lastUpdated: new Date().toISOString()
+        }, { merge: true });
+        console.log(`[Firebase] Transcript ${id} saved to Firestore`);
+    } catch (e) {
+        console.warn(`[Firebase] Could not save transcript ${id}:`, e.message);
     }
 }
 
@@ -426,30 +442,33 @@ app.get('/api/admin/policies', (req, res) => {
     res.json(adminConfig.coachingPolicies);
 });
 
-app.post('/api/admin/policies', (req, res) => {
+app.post('/api/admin/policies', async (req, res) => {
     const policy = { id: Date.now().toString(), ...req.body };
     adminConfig.coachingPolicies.push(policy);
     io.emit('config_updated', adminConfig);
+    await saveConfigToFirestore(adminConfig);
     console.log(`[Admin] Policy added: ${policy.name}`);
     res.json({ success: true, policy });
 });
 
-app.put('/api/admin/policies/:id', (req, res) => {
+app.put('/api/admin/policies/:id', async (req, res) => {
     const idx = adminConfig.coachingPolicies.findIndex(p => p.id === req.params.id);
     if (idx === -1) return res.status(404).json({ error: 'Policy not found' });
     adminConfig.coachingPolicies[idx] = { ...adminConfig.coachingPolicies[idx], ...req.body };
     io.emit('config_updated', adminConfig);
+    await saveConfigToFirestore(adminConfig);
     res.json({ success: true, policy: adminConfig.coachingPolicies[idx] });
 });
 
-app.delete('/api/admin/policies/:id', (req, res) => {
+app.delete('/api/admin/policies/:id', async (req, res) => {
     adminConfig.coachingPolicies = adminConfig.coachingPolicies.filter(p => p.id !== req.params.id);
     io.emit('config_updated', adminConfig);
+    await saveConfigToFirestore(adminConfig);
     res.json({ success: true });
 });
 
 // Document upload
-app.post('/api/admin/documents', upload.single('file'), (req, res) => {
+app.post('/api/admin/documents', upload.single('file'), async (req, res) => {
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
     const doc = {
         id: Date.now().toString(),
@@ -462,12 +481,14 @@ app.post('/api/admin/documents', upload.single('file'), (req, res) => {
     };
     adminConfig.documents.push(doc);
     console.log(`[Admin] Document uploaded: ${doc.name}`);
+    await saveConfigToFirestore(adminConfig);
 
     // Process document for Knowledge Assist (background)
-    knowledgeService.processDocument(doc, req.file.path).then(success => {
+    knowledgeService.processDocument(doc, req.file.path).then(async success => {
         const d = adminConfig.documents.find(item => item.id === doc.id);
         if (d) d.status = success ? 'ready' : 'error';
         io.emit('config_updated', adminConfig);
+        await saveConfigToFirestore(adminConfig);
     });
 
     res.json({ success: true, document: doc });
@@ -477,12 +498,13 @@ app.get('/api/admin/documents', (req, res) => {
     res.json(adminConfig.documents);
 });
 
-app.delete('/api/admin/documents/:id', (req, res) => {
+app.delete('/api/admin/documents/:id', async (req, res) => {
     const doc = adminConfig.documents.find(d => d.id === req.params.id);
     if (doc) {
         const filepath = path.join(uploadsDir, doc.filename);
         if (fs.existsSync(filepath)) fs.unlinkSync(filepath);
         adminConfig.documents = adminConfig.documents.filter(d => d.id !== req.params.id);
+        await saveConfigToFirestore(adminConfig);
     }
     res.json({ success: true });
 });
@@ -514,6 +536,16 @@ app.post('/api/admin/generate-summary', async (req, res) => {
 
         const result = await geminiModel.generateContent(prompt);
         const summary = result.response.text();
+
+        // Persist transcript and summary
+        await saveTranscriptToFirestore(conversationId, 'chat', {
+            messages: conv.messages,
+            customerInfo: conv.customerInfo,
+            summary,
+            startTime: conv.startTime,
+            endTime: new Date().toISOString()
+        });
+
         res.json({ success: true, summary });
     } catch (error) {
         res.status(500).json({ error: 'Failed' });
@@ -591,6 +623,15 @@ app.post('/api/voice/summary', async (req, res) => {
         const prompt = `${adminConfig.summaryPrompt}\n\n--- VOICE CALL TRANSCRIPT ---\n${transcript}\n--- END ---`;
         const result = await geminiModel.generateContent(prompt);
         const summary = result.response.text();
+
+        // Persist voice transcript and summary
+        // Note: For voice, we might want to capture more metadata if available
+        await saveTranscriptToFirestore(`voice-${Date.now()}`, 'voice', {
+            transcript,
+            summary,
+            timestamp: new Date().toISOString()
+        });
+
         res.json({ success: true, summary });
     } catch (error) {
         res.status(500).json({ error: 'Failed to generate voice summary' });
@@ -611,6 +652,15 @@ app.post('/api/admin/end-conversation', async (req, res) => {
             const result = await geminiModel.generateContent(prompt);
             summary = result.response.text();
         }
+
+        // Persist final state before closing
+        await saveTranscriptToFirestore(conversationId, 'chat', {
+            messages: conv.messages,
+            customerInfo: conv.customerInfo,
+            summary,
+            startTime: conv.startTime,
+            endTime: new Date().toISOString()
+        });
 
         // Remove conversation or mark as closed
         delete conversations[conversationId];

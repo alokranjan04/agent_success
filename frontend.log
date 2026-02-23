@@ -76,3 +76,91 @@ Caused by:
 [2m9:38:28 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CustomerChat.tsx, /src/index.css[22m
 [2m9:38:38 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CustomerChat.tsx, /src/index.css[22m
 [2m9:39:14 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/KnowledgeSidebar.tsx, /src/index.css[22m
+9:42:11 am [vite] Pre-transform error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓÇö desktop version ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+9:42:11 am [vite] Internal server error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓÇö desktop version ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx
+  
+9:42:18 am [vite] Internal server error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓÇö desktop version ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx
+  
+9:42:32 am [vite] Internal server error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓÇö desktop version ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx
+  
+9:42:47 am [vite] Internal server error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓÇö desktop version ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx
+  
+[2m9:43:39 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
