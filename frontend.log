@@ -11,3 +11,68 @@
 [2m9:02:40 am[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdocumentation.html[22m
 [2m9:12:07 am[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdocumentation.html[22m
 [2m9:34:11 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
+[2m9:34:26 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
+[2m9:34:56 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
+[2m9:35:17 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
+9:35:17 am [vite] Internal server error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx
+  
+9:35:17 am [vite] Internal server error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx
+  
+9:35:17 am [vite] Internal server error:   x Unterminated regexp literal
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx:500:1]
+ 497 |                                 Clear
+ 498 |                             </button>
+ 499 |                         </div>
+ 500 |                     </div>
+     :                      ^^^^^
+ 501 | 
+ 502 |                 {/* ΓöÇΓöÇΓöÇ Coaching Sidebar ΓöÇΓöÇΓöÇ */}
+ 502 |                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/pages/VoiceAgent.tsx
+  
+[2m9:36:06 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
+[2m9:36:25 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceCustomer.tsx, /src/index.css[22m
+[2m9:36:54 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceCustomer.tsx, /src/index.css[22m
+[2m9:37:15 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CustomerChat.tsx, /src/index.css[22m
+[2m9:37:50 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CustomerChat.tsx, /src/index.css[22m
+[2m9:38:28 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CustomerChat.tsx, /src/index.css[22m
+[2m9:38:38 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CustomerChat.tsx, /src/index.css[22m
+[2m9:39:14 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/KnowledgeSidebar.tsx, /src/index.css[22m

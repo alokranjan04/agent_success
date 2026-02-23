@@ -497,7 +497,8 @@ const VoiceAgent: React.FC = () => {
                                 Clear
                             </button>
                         </div>
-                    </div>
+                    )}
+                </div>
 
                 {/* ─── Coaching Sidebar — desktop version ─── */}
                 <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
