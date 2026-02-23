@@ -101,37 +101,34 @@ The latest update modularizes the Retrieval Augmented Generation (RAG) feature:
 ## 6. System Architecture
 
 ### Cloud Infrastructure Diagram
-```mermaid
-graph TD
-    subgraph "Public Internet"
-        A["Agent (Browser)"]
-        C["Customer (Browser)"]
-    end
-
-    subgraph "Google Cloud Platform"
-        subgraph "Cloud Run (Auto-scaling)"
-            S["Express.js Server"]
-            W["Socket.IO (WebSockets)"]
-        end
-
-        subgraph "Managed Services"
-            G["Gemini 1.5 Flash (AI)"]
-            F["Firebase Firestore (DB)"]
-            T["Google Cloud TTS"]
-            M["Secret Manager"]
-        end
-        
-        B["Cloud Build"]
-    end
-
-    A <-->|Socket.IO| W
-    C <-->|Socket.IO| W
-    S <--> W
-    S <-->|API| G
-    S <-->|SDK| F
-    S <-->|API| T
-    S <-->|Fetch| M
-    B -->|Deploy| S
+```text
+┌──────────────────────────────────────────────────────────┐
+│                   PUBLIC INTERNET                        │
+│  ┌──────────────────┐           ┌──────────────────┐     │
+│  │  Agent Browser   │           │ Customer Browser │     │
+│  └─────────┬────────┘           └─────────┬────────┘     │
+└────────────┼──────────────────────────────┼──────────────┘
+             │           Socket.IO          │
+             ▼                              ▼
+┌──────────────────────────────────────────────────────────┐
+│                GOOGLE CLOUD PLATFORM                     │
+│                                                          │
+│  ┌────────────────────────────────────────────────────┐  │
+│  │             GOOGLE CLOUD RUN (Compute)             │  │
+│  │  ┌──────────────────────┐  ┌────────────────────┐  │  │
+│  │  │   Express.js Server  │◄─┤  Socket.IO Server  │  │  │
+│  │  └──────────┬───────────┘  └────────────────────┘  │  │
+│  └─────────────┼──────────────────────────────────────┘  │
+│                │                                         │
+│  ┌─────────────▼──────────┐    ┌──────────────────────┐  │
+│  │   Gemini 1.5 Flash     │    │  Firebase Firestore  │  │
+│  │   (Coaching Engine)    │    │   (Vector DB / App)  │  │
+│  └────────────────────────┘    └──────────────────────┘  │
+│                                                          │
+│  ┌────────────────────────┐    ┌──────────────────────┐  │
+│  │   Google Cloud TTS     │    │    Secret Manager    │  │
+│  └────────────────────────┘    └──────────────────────┘  │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ### Real-Time Flow
