@@ -1,0 +1,414 @@
+
+> agent-success@1.0.0 dev:backend
+> nodemon server/index.js
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:16828) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Server running on port 5005
+[Socket] Client connected: ULWpKbVH_nMiuGErAAAH
+[Socket] Client connected: jG8T2N5_tWM9WMNXAAAI
+[Socket] Client connected: U9cpT3DHl00zIuwPAAAJ
+[Socket] Client connected: fsWZk7IlaqSWPZNrAAAK
+[Socket] Client connected: 8s1JE-v8nziOEWsIAAAL
+[Socket] Client connected: VEY7m0a1raXlbk_5AAAM
+[Socket] Client connected: nJo_JWapwV4PssjvAAAN
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[Socket] Client connected: E1Owdrn2Nyq7j8f5AAAT
+[Socket] Client connected: q_nxI2gyOmtgRuhrAAAU
+[Socket] Client connected: fvJITd1SlSKvL5i0AAAV
+[Socket] Client connected: nO4MMk_yciobxuJJAAAW
+[Socket] Client connected: dvVetmBRwv92waTQAAAX
+[Socket] Client connected: iedG002-eZuGf30iAAAZ
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:52920) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Server running on port 5005
+[Socket] Client connected: uFOLfFOCGi7pf1CsAAAE
+[Socket] Client connected: nKkpjWwdajXG35plAAAF
+[Socket] Client connected: am8flVc9yTS6FqM7AAAG
+[Socket] Client connected: 50SWE3sI7973nIP_AAAH
+[Socket] Client connected: mE3OX3dpVS7k0VK9AAAM
+[Socket] Client connected: hibFw6bmgVMjwMEJAAAN
+[Socket] Client connected: oefStUBRbNpYo99QAAAO
+[Socket] Client connected: gGAnMjftCVCyvd2PAAAP
+[Socket] Client connected: 0qAzg28opOy0M0b4AAAU
+[Socket] Client connected: xExLvcy2pzGUZWHsAAAV
+[Socket] Client connected: DtCEDD-5zBad4U7fAAAW
+[Socket] Client connected: TEO7cI_FwLkMGoc2AAAX
+[Socket] Client connected: PY8B6Gqxypv5ZTIwAAAa
+[Socket] Client connected: DYZqtIAOybKRR2aaAAAb
+[Firebase] Could not load config: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[Socket] Client disconnected: am8flVc9yTS6FqM7AAAG
+[Socket] Client disconnected: DYZqtIAOybKRR2aaAAAb
+[Socket] Client disconnected: PY8B6Gqxypv5ZTIwAAAa
+[Socket] Client disconnected: 50SWE3sI7973nIP_AAAH
+[Socket] Client connected: Y2_x1RRj8MaePJ1BAAAg
+[Socket] Client connected: XwmpcBRwYeXFL5dPAAAh
+[Socket] Client connected: v_veS7nwyAMh_SfaAAAi
+[Socket] Client connected: Y-WhJw8MhbhFIjkHAAAj
+[Socket] Client connected: qqZhhrhv0K6dslO6AAAo
+[Socket] Client connected: mefxxEp_1nVgVv2jAAAp
+[Socket] Client connected: IPolH2vUr0ADIBsaAAAq
+[Socket] Client connected: ybqIUy5duCEtER3PAAAr
+[32m[nodemon] restarting due to changes...[39m
+[Socket] Client connected: 8q4Mzmb92dWWX49wAAAu
+[Socket] Client connected: j6ukaPLg4Ue9WUvNAAAv
+[Socket] Client connected: cl9D-QAKRIHniSVBAAAx
+[2026-02-22T20:03:30.040Z] POST /api/knowledge/search
+[2026-02-22T20:04:30.979Z] POST /api/knowledge/search
+[2026-02-22T20:05:18.014Z] GET /api/admin/config
+SyntaxError: Unexpected token 'q', "query=refund" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at createStrictSyntaxError (C:\Users\Alok Ranjan\Documents\Agent Success\node_modules\body-parser\lib\types\json.js:169:10)
+    at parse (C:\Users\Alok Ranjan\Documents\Agent Success\node_modules\body-parser\lib\types\json.js:86:15)
+    at C:\Users\Alok Ranjan\Documents\Agent Success\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (C:\Users\Alok Ranjan\Documents\Agent Success\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\Alok Ranjan\Documents\Agent Success\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\Alok Ranjan\Documents\Agent Success\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[2026-02-22T20:11:08.324Z] GET /voice
+[Socket] Client connected: d1nr764jbxR2N0NbAAA2
+[Socket] Client connected: szClxz9q7CydeHIOAAA3
+[Socket] Client connected: logDlK302CZJOIIkAAA4
+[Socket] Client connected: qZgPbWWC8Bmgaxc1AAA5
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[Socket] Client disconnected: qZgPbWWC8Bmgaxc1AAA5
+[Socket] Client disconnected: nKkpjWwdajXG35plAAAF
+[Socket] Client disconnected: uFOLfFOCGi7pf1CsAAAE
+[Socket] Client disconnected: 0qAzg28opOy0M0b4AAAU
+[Socket] Client disconnected: xExLvcy2pzGUZWHsAAAV
+[Socket] Client disconnected: DtCEDD-5zBad4U7fAAAW
+[Socket] Client disconnected: TEO7cI_FwLkMGoc2AAAX
+[Socket] Client disconnected: gGAnMjftCVCyvd2PAAAP
+[Socket] Client disconnected: XwmpcBRwYeXFL5dPAAAh
+[Socket] Client disconnected: mE3OX3dpVS7k0VK9AAAM
+[Socket] Client disconnected: hibFw6bmgVMjwMEJAAAN
+[Socket] Client disconnected: szClxz9q7CydeHIOAAA3
+[Socket] Client disconnected: v_veS7nwyAMh_SfaAAAi
+[Socket] Client disconnected: oefStUBRbNpYo99QAAAO
+[Socket] Client disconnected: Y2_x1RRj8MaePJ1BAAAg
+[Socket] Client disconnected: qqZhhrhv0K6dslO6AAAo
+[Socket] Client disconnected: Y-WhJw8MhbhFIjkHAAAj
+[Socket] Client disconnected: mefxxEp_1nVgVv2jAAAp
+[Socket] Client disconnected: IPolH2vUr0ADIBsaAAAq
+[Socket] Client disconnected: ybqIUy5duCEtER3PAAAr
+[Socket] Client disconnected: logDlK302CZJOIIkAAA4
+[Socket] Client disconnected: cl9D-QAKRIHniSVBAAAx
+[Socket] Client disconnected: 8q4Mzmb92dWWX49wAAAu
+[Socket] Client disconnected: j6ukaPLg4Ue9WUvNAAAv
+[Socket] Client disconnected: d1nr764jbxR2N0NbAAA2
+[Socket] Client connected: ojciqUA7D_5tswpPAABF
+[Socket] Client connected: gOitMVMGXjfcePK-AABG
+[Socket] Client connected: ZRqqSCkJefLz8CTfAABH
+[Socket] Client connected: pX5s_a6OLH1Z8GJxAABI
+[Socket] Client connected: _NVAPSiXErJQlulVAABJ
+[Socket] Client connected: fR87LJnjcNsBA09MAABK
+[Socket] Client connected: zNnQjMn4WLC-QZVrAABL
+[Socket] Client connected: lJHWr5cnmUQf-VcPAABM
+[Socket] Client connected: UWtbpU4_JIiaVsD4AABN
+[Socket] Client connected: WJ34IOGsh19H2Si_AABQ
+[Socket] Client connected: 7qSG0nQiTtAF5I0eAABS
+[Socket] Client connected: ag_9f6AlHPK1DJmMAABT
+[Socket] Client connected: pePLdB8V68Zj6S3-AABU
+[Socket] Client connected: HUvY0YvIxGjRLfBHAABW
+[Socket] Client connected: 30wVPvXeZUlPlw86AABZ
+[Socket] Client connected: zjlWqBvgRTgRhAUqAABa
+[Socket] Client disconnected: ZRqqSCkJefLz8CTfAABH
+[Socket] Client disconnected: pePLdB8V68Zj6S3-AABU
+[Socket] Client disconnected: ag_9f6AlHPK1DJmMAABT
+[Socket] Client disconnected: 7qSG0nQiTtAF5I0eAABS
+[Socket] Client disconnected: lJHWr5cnmUQf-VcPAABM
+[Socket] Client disconnected: ojciqUA7D_5tswpPAABF
+[Socket] Client disconnected: UWtbpU4_JIiaVsD4AABN
+[Socket] Client disconnected: pX5s_a6OLH1Z8GJxAABI
+[Socket] Client disconnected: WJ34IOGsh19H2Si_AABQ
+[Socket] Client connected: vdYm-xX6sprQ7iaqAABe
+[Socket] Client connected: DuDov8MR-9pgfWH5AABf
+[Socket] Client connected: KuOLWoG6MTUufLjaAABg
+[Socket] Client connected: 1_7N1GK9wZvbVKwoAABl
+[Socket] Client connected: OegQZeW-BR65VdGRAABm
+[Socket] Client connected: 1mLzoFJtcuemetXaAABn
+[Socket] Client connected: eL89XoD_wHByKWqUAABo
+[Socket] Client connected: N7JcJa0cahorGIwaAABt
+[Socket] Client connected: X6OXmYAEWOqQct_VAABu
+[Socket] Client connected: f_lyBuVvl_nYwTgmAABv
+[Socket] Client connected: LqUhTNFK6Gr8sd-OAABw
+[Socket] Client connected: DQWCp0Cffc2GuxsjAAB1
+[Socket] Client connected: 8FO8qeuzw8UHvM1EAAB2
+[Socket] Client connected: HehMsxp3jcyUoL7PAAB3
+[Socket] Client connected: m92AMUN7Qphuzjb0AAB4
+[Socket] Client connected: UmAGj9NUca0EMyoBAAB9
+[Socket] Client connected: kTJU85dOQW3QafjhAAB-
+[Socket] Client connected: njM5HTZbvcRYhUngAAB_
+[Socket] Client connected: KksxjIH3zfOJDcPQAACA
+[Socket] Client disconnected: _NVAPSiXErJQlulVAABJ
+[Socket] Client disconnected: gOitMVMGXjfcePK-AABG
+[Socket] Client disconnected: fR87LJnjcNsBA09MAABK
+[Socket] Client disconnected: zNnQjMn4WLC-QZVrAABL
+[Socket] Client disconnected: kTJU85dOQW3QafjhAAB-
+[Socket] Client disconnected: X6OXmYAEWOqQct_VAABu
+[Socket] Client disconnected: UmAGj9NUca0EMyoBAAB9
+[Socket] Client disconnected: N7JcJa0cahorGIwaAABt
+[Socket] Client disconnected: OegQZeW-BR65VdGRAABm
+[Socket] Client disconnected: 1mLzoFJtcuemetXaAABn
+[Socket] Client disconnected: njM5HTZbvcRYhUngAAB_
+[Socket] Client disconnected: 1_7N1GK9wZvbVKwoAABl
+[Socket] Client disconnected: eL89XoD_wHByKWqUAABo
+[Socket] Client disconnected: KksxjIH3zfOJDcPQAACA
+[Socket] Client disconnected: DuDov8MR-9pgfWH5AABf
+[Socket] Client disconnected: zjlWqBvgRTgRhAUqAABa
+[Socket] Client disconnected: vdYm-xX6sprQ7iaqAABe
+[Socket] Client disconnected: HUvY0YvIxGjRLfBHAABW
+[Socket] Client disconnected: m92AMUN7Qphuzjb0AAB4
+[Socket] Client disconnected: HehMsxp3jcyUoL7PAAB3
+[Socket] Client disconnected: 8FO8qeuzw8UHvM1EAAB2
+[Socket] Client disconnected: 30wVPvXeZUlPlw86AABZ
+[Socket] Client disconnected: LqUhTNFK6Gr8sd-OAABw
+[Socket] Client disconnected: f_lyBuVvl_nYwTgmAABv
+[Socket] Client disconnected: DQWCp0Cffc2GuxsjAAB1
+[Socket] Client disconnected: KuOLWoG6MTUufLjaAABg
+[Socket] Client connected: _QAfEAtduq0vl3aTAACD
+[Socket] Client connected: 8eyejLEUyC5w2IV2AACE
+[Socket] Client connected: 09HsWAuhMAT5CH98AACH
+[Socket] Client connected: UGgssYLC59A-0Dr4AACM
+[Socket] Client connected: XEgU-y1TqwMxmZQRAACN
+[Socket] Client connected: AOroq_NHP_VrAZxYAACO
+[Socket] Client connected: LECmhBfsXnCUqQWfAACP
+[Socket] Client connected: Afgh2dVYcso9aWtOAACT
+[Socket] Client connected: ErmKOsbkCPLCrLhTAACV
+[Socket] Client connected: cRDBNrVaaZ2iGpw8AACW
+[Socket] Client connected: 45Y0PMkPtgiYhiaMAACa
+[Socket] Client connected: mHWn70HKxh5BkKHKAACb
+[Socket] Client connected: Q21Nzo1aWRkDdzV7AACc
+[Socket] Client connected: dSeRdv_HQJ9nDpRqAACd
+[Socket] Client connected: H0jHo9aX0rPuA5uxAACi
+[Socket] Client connected: UXTZMseSouHbSAFrAACj
+[Socket] Client connected: psmLZmgSxnYomcHyAACk
+[Socket] Client connected: uCQL9QkhDyqa6jk1AACl
+[Socket] Client connected: nPY1VaQA5tMABKneAACo
+[Socket] Client connected: bMP0g13AP-yiiZtCAACp
+[Socket] Client connected: SbXMO5KmM50lGchMAACu
+[Socket] Client connected: abyzErFYYZYizFCbAACv
+[Socket] Client connected: zY8IwMFif8R04c-NAACw
+[Socket] Client connected: LKKPizmQ4jMPhMe7AACx
+[Socket] Client disconnected: _QAfEAtduq0vl3aTAACD
+[Socket] Client disconnected: 8eyejLEUyC5w2IV2AACE
+[Socket] Client disconnected: zY8IwMFif8R04c-NAACw
+[Socket] Client disconnected: SbXMO5KmM50lGchMAACu
+[Socket] Client disconnected: abyzErFYYZYizFCbAACv
+[Socket] Client disconnected: H0jHo9aX0rPuA5uxAACi
+[Socket] Client disconnected: UXTZMseSouHbSAFrAACj
+[Socket] Client disconnected: dSeRdv_HQJ9nDpRqAACd
+[Socket] Client disconnected: 45Y0PMkPtgiYhiaMAACa
+[Socket] Client disconnected: mHWn70HKxh5BkKHKAACb
+[Socket] Client disconnected: bMP0g13AP-yiiZtCAACp
+[Socket] Client disconnected: psmLZmgSxnYomcHyAACk
+[Socket] Client disconnected: nPY1VaQA5tMABKneAACo
+[Socket] Client disconnected: UGgssYLC59A-0Dr4AACM
+[Socket] Client disconnected: Q21Nzo1aWRkDdzV7AACc
+[Socket] Client disconnected: AOroq_NHP_VrAZxYAACO
+[Socket] Client disconnected: cRDBNrVaaZ2iGpw8AACW
+[Socket] Client disconnected: ErmKOsbkCPLCrLhTAACV
+[Socket] Client disconnected: Afgh2dVYcso9aWtOAACT
+[Socket] Client disconnected: XEgU-y1TqwMxmZQRAACN
+[Socket] Client disconnected: LECmhBfsXnCUqQWfAACP
+[Socket] Client disconnected: uCQL9QkhDyqa6jk1AACl
+[Socket] Client disconnected: LKKPizmQ4jMPhMe7AACx
+[Socket] Client disconnected: 09HsWAuhMAT5CH98AACH
+[Socket] Client connected: scJdEqQadZ5gOBtKAAC-
+[Socket] Client connected: OqqvecEt6xBzoExpAAC_
+[Socket] Client connected: iUsbp2Oqz6giexycAADA
+[Socket] Client connected: oIoIAgGAfuTRHK4TAADB
+[Socket] Client connected: jN70WZ_fpleYFPXbAADC
+[Socket] Client connected: c25z9YyrWLCexP1HAADD
+[Socket] Client connected: ZWMxLle8YkRgkj0PAADE
+[Socket] Client connected: oBSMI-9ogRHf0k9SAADF
+[Socket] Client connected: Htu_LsFYuOPFlAfWAADH
+[Socket] Client connected: cIyth_wkTzuAsI8AAADI
+[Socket] Client connected: Lt4GPyiFdeYE3FB6AADJ
+[Socket] Client connected: WdjW6KBWx9spVi8lAADN
+[Socket] Client connected: ttEqns3BwqfDLGxUAADT
+[Socket] Client connected: E-cP0dDrkQ1FheHlAADU
+[Socket] Client connected: GklqZkgFXJ0YXgWvAADV
+[Socket] Client connected: _mt7ARnEfO_SQyTJAADW
+[Socket] Client connected: JDMiVhZAfRMLoZhfAADX
+[Socket] Client connected: m1_AIbkT9FTlety7AADc
+[Socket] Client connected: XJvQCzLi6I0MAW4lAADd
+[Socket] Client connected: J9hWI3bNnWD7I0hiAADe
+[Socket] Client connected: fneNGVTYGAQ73yv7AADf
+[Socket] Client connected: YYpCJFCP_moNQTluAADk
+[Socket] Client connected: qPs_6_rP2f9-w644AADl
+[Socket] Client connected: rDJUQhULW3RjNJq7AADm
+[Socket] Client connected: 45wIvKil3V4yjckuAADn
+[Socket] Client connected: Uk7Ee2spHqN430UXAADs
+[Socket] Client connected: mK4uDclCZ89_kxfLAADt
+[Socket] Client connected: B16eIjUNfJbtzWKnAADu
+[Socket] Client connected: 0m70Gu6mps6Z1c-hAADv
+[Socket] Client connected: Uz20bZi8kszPOfTfAAD0
+[Socket] Client connected: sivEXDJ-hR878BHtAAD1
+[Socket] Client connected: NVKVIRsntR8Tpeh0AAD2
+[Socket] Client connected: xmGv8QIf6e1eMvIHAAD3
+[Socket] Client disconnected: scJdEqQadZ5gOBtKAAC-
+[Socket] Client disconnected: OqqvecEt6xBzoExpAAC_
+[Socket] Client disconnected: iUsbp2Oqz6giexycAADA
+[Socket] Client disconnected: oIoIAgGAfuTRHK4TAADB
+[Socket] Client disconnected: c25z9YyrWLCexP1HAADD
+[Socket] Client disconnected: ZWMxLle8YkRgkj0PAADE
+[Socket] Client disconnected: oBSMI-9ogRHf0k9SAADF
+[Socket] Client disconnected: Htu_LsFYuOPFlAfWAADH
+[Socket] Client disconnected: cIyth_wkTzuAsI8AAADI
+[Socket] Client disconnected: jN70WZ_fpleYFPXbAADC
+[Socket] Client disconnected: Lt4GPyiFdeYE3FB6AADJ
+[Socket] Client disconnected: Uz20bZi8kszPOfTfAAD0
+[Socket] Client disconnected: sivEXDJ-hR878BHtAAD1
+[Socket] Client disconnected: B16eIjUNfJbtzWKnAADu
+[Socket] Client disconnected: mK4uDclCZ89_kxfLAADt
+[Socket] Client disconnected: xmGv8QIf6e1eMvIHAAD3
+[Socket] Client disconnected: Uk7Ee2spHqN430UXAADs
+[Socket] Client disconnected: WdjW6KBWx9spVi8lAADN
+[Socket] Client disconnected: _mt7ARnEfO_SQyTJAADW
+[Socket] Client disconnected: GklqZkgFXJ0YXgWvAADV
+[Socket] Client disconnected: E-cP0dDrkQ1FheHlAADU
+[Socket] Client disconnected: ttEqns3BwqfDLGxUAADT
+[Socket] Client disconnected: 0m70Gu6mps6Z1c-hAADv
+[Socket] Client disconnected: JDMiVhZAfRMLoZhfAADX
+[Socket] Client disconnected: NVKVIRsntR8Tpeh0AAD2
+[Socket] Client disconnected: 45wIvKil3V4yjckuAADn
+[Socket] Client disconnected: fneNGVTYGAQ73yv7AADf
+[Socket] Client disconnected: J9hWI3bNnWD7I0hiAADe
+[Socket] Client disconnected: XJvQCzLi6I0MAW4lAADd
+[Socket] Client disconnected: rDJUQhULW3RjNJq7AADm
+[Socket] Client disconnected: qPs_6_rP2f9-w644AADl
+[Socket] Client disconnected: m1_AIbkT9FTlety7AADc
+[Socket] Client disconnected: YYpCJFCP_moNQTluAADk
+[Socket] Client connected: Nss4hNr9CkMWiVJXAAEE
+[Socket] Client connected: Oav7m7rX4eAw7Kx7AAEF
+[Socket] Client connected: M-sn44MfEAEsamEYAAEG
+[Socket] Client connected: byiIl5MFSrZhSpq6AAEH
+[Socket] Client connected: 88xUVkZ6VmmlWy-MAAEI
+[Socket] Client connected: b--EJDL901J3BjYKAAEJ
+[Socket] Client connected: g_DdrloujACtxjLNAAEK
+[Socket] Client connected: _sQoej21QeINn_aEAAEL
+[Socket] Client connected: 7EpYnl_DXuctJiuqAAEM
+[Socket] Client connected: 5jDJ_H70V6EL31m2AAEN
+[Socket] Client connected: k0FX3XRwjdmLAGp-AAEO
+[Socket] Client connected: 6KDkUDQKDs5OExQ0AAEP
+[Socket] Client disconnected: Nss4hNr9CkMWiVJXAAEE
+[Socket] Client disconnected: Oav7m7rX4eAw7Kx7AAEF
+[Socket] Client connected: 7MMjC8J5tg6TlQJFAAEU
+[Socket] Client connected: BmrmMvqv4KXlic86AAEV
+[Socket] Client connected: KCenrEjqDqdtk3QUAAEW
+[Socket] Client connected: mUhA3SiDWlM9f1CDAAEX
+[Socket] Client connected: rZRzg1iM2eBrCGF0AAEd
+[Socket] Client connected: uJmSyvVWKbYyXTZzAAEh
+[Socket] Client connected: nBHKHilqLD8OqzVoAAEi
+[Socket] Client connected: 64OTrAQn7PxZ4jmgAAEj
+[Socket] Client connected: AG2kDLBl9TDp3KKSAAEk
+[Socket] Client connected: GAC_j5UcT65OkjRwAAEl
+[Socket] Client connected: RtgQsZXE6c6Fv37rAAEm
+[Socket] Client connected: cJ3WJmbrrizLORHGAAEn
+[Socket] Client connected: Fa5pOPklwqplpja-AAEr
+[Socket] Client connected: NYZ1aP-5T0vOXdeoAAEt
+[Socket] Client connected: H9vNdPK8Gl-skjmjAAE0
+[Socket] Client connected: iby4QoNY0g2oJtKZAAE1
+[Socket] Client connected: URL8c9b3yx-Cbqd4AAE2
+[Socket] Client connected: 9MnmBiKUqr2J6vcaAAE3
+[Socket] Client connected: Rplq3apePNoqFZVnAAE4
+[Socket] Client connected: 1wmvtxCvbjMaMPb0AAE5
+[Socket] Client connected: NXksGhA6Q65i6_zfAAE6
+[Socket] Client connected: YWpArDTRZ7pmkCg0AAE7
+[Socket] Client disconnected: 88xUVkZ6VmmlWy-MAAEI
+[Socket] Client disconnected: b--EJDL901J3BjYKAAEJ
+[Socket] Client disconnected: M-sn44MfEAEsamEYAAEG
+[Socket] Client disconnected: g_DdrloujACtxjLNAAEK
+[Socket] Client disconnected: _sQoej21QeINn_aEAAEL
+[Socket] Client disconnected: 7EpYnl_DXuctJiuqAAEM
+[Socket] Client disconnected: byiIl5MFSrZhSpq6AAEH
+[Socket] Client disconnected: 5jDJ_H70V6EL31m2AAEN
+[Socket] Client disconnected: 6KDkUDQKDs5OExQ0AAEP
+[Socket] Client disconnected: k0FX3XRwjdmLAGp-AAEO
+[Socket] Client disconnected: 1wmvtxCvbjMaMPb0AAE5
+[Socket] Client disconnected: NXksGhA6Q65i6_zfAAE6
+[Socket] Client disconnected: uJmSyvVWKbYyXTZzAAEh
+[Socket] Client disconnected: cJ3WJmbrrizLORHGAAEn
+[Socket] Client disconnected: 7MMjC8J5tg6TlQJFAAEU
+[Socket] Client disconnected: KCenrEjqDqdtk3QUAAEW
+[Socket] Client disconnected: mUhA3SiDWlM9f1CDAAEX
+[Socket] Client disconnected: NYZ1aP-5T0vOXdeoAAEt
+[Socket] Client disconnected: nBHKHilqLD8OqzVoAAEi
+[Socket] Client disconnected: 64OTrAQn7PxZ4jmgAAEj
+[Socket] Client disconnected: GAC_j5UcT65OkjRwAAEl
+[Socket] Client disconnected: RtgQsZXE6c6Fv37rAAEm
+[Socket] Client disconnected: Fa5pOPklwqplpja-AAEr
+[Socket] Client disconnected: YWpArDTRZ7pmkCg0AAE7
+[Socket] Client disconnected: iby4QoNY0g2oJtKZAAE1
+[Socket] Client disconnected: H9vNdPK8Gl-skjmjAAE0
+[Socket] Client disconnected: URL8c9b3yx-Cbqd4AAE2
+[Socket] Client disconnected: 9MnmBiKUqr2J6vcaAAE3
+[Socket] Client disconnected: Rplq3apePNoqFZVnAAE4
+[Socket] Client disconnected: rZRzg1iM2eBrCGF0AAEd
+[Socket] Client disconnected: AG2kDLBl9TDp3KKSAAEk
+[Socket] Client disconnected: BmrmMvqv4KXlic86AAEV
+[Socket] Client connected: AG_Cm799EN4NWa2IAAFI
+[Socket] Client connected: Q1DgHPaU_ilMXo-gAAFJ
+[Socket] Client connected: SULV3deCk3zQCLbOAAFK
+[Socket] Client connected: C1h_qTwRO2rzxYyRAAFQ
+[Socket] Client connected: wbNbEV5nmXtCqk9zAAFR
+[Socket] Client connected: 635SXnhU9L-TE12LAAFS
+[Socket] Client connected: caHVR2yCFt-2PZffAAFT
+[Socket] Client connected: bHY-FnGx1uybku9OAAFU
+[Socket] Client connected: d0-AL-qZ4Fkwqsb3AAFa
+[Socket] Client connected: V29VH6LfPPN6U-jVAAFb
+[Socket] Client connected: 5UJg4Umu0y3re-9jAAFc
+[Socket] Client connected: g0qEueZusqblzza5AAFd
+[Socket] Client connected: 0pZd6fiEh9bgZDhJAAFg
+[Socket] Client connected: oMfjkOAq91ADRBdNAAFj
+[Socket] Client connected: 9iy7s_ZZu98vE1_LAAFk
+[Socket] Client connected: jkDWcVJfewaHghp6AAFl
+[Socket] Client connected: SInlLCpQNxTM1MLfAAFm
+[Socket] Client connected: yfu1T5IwsNWWeV5oAAFn
+[Socket] Client connected: FwVvYXvGIOgXPqPwAAFs
+[Socket] Client connected: x5gdo4O4T0RTp6nxAAFt
+[Socket] Client connected: FbwocMnv7SvfSxX6AAFu
+[Socket] Client connected: tFsEUhk7Eb3x2RvTAAFv
+[Socket] Client connected: M4qcy2qpUNvI1dVGAAF0
+[Socket] Client connected: w1jyPZN8eKdz5SxrAAF1
+[Socket] Client connected: jSPMNJ76Z_uGyhc_AAF2
+[Socket] Client connected: KbHMNteYjShLbl4CAAF3
+[Socket] Client connected: 7f5u2q5nBMNcDhhqAAF8
+[Socket] Client connected: 1IqSSmmdM8JoDZTOAAF9
+[Socket] Client connected: _cTHCN3539F7c3WNAAF-
+[Socket] Client connected: JsGhgvqWSxkcEsTUAAF_
+[Socket] Client disconnected: Q1DgHPaU_ilMXo-gAAFJ
+[Socket] Client disconnected: AG_Cm799EN4NWa2IAAFI
+[Socket] Client disconnected: SULV3deCk3zQCLbOAAFK
+[Socket] Client disconnected: C1h_qTwRO2rzxYyRAAFQ
+[Socket] Client disconnected: wbNbEV5nmXtCqk9zAAFR
+[Socket] Client disconnected: 635SXnhU9L-TE12LAAFS
+[Socket] Client disconnected: caHVR2yCFt-2PZffAAFT
+[Socket] Client disconnected: bHY-FnGx1uybku9OAAFU

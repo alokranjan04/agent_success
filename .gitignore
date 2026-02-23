@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production
+dist
+dist-ssr
+*.local
+
+# Environment & Secrets
+.env
+.env.production
+.env.development
+*.json
+!package.json
+!tsconfig.json
+!firebase.json
+!service-account-example.json
+
+# GCP / Firebase
+service-account.json
+*-sa-key.json
+firebase-debug.log*
+.firebase/
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# App specific
+uploads/
+logs/
+temp/

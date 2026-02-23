@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Agent Assist Module Overrides to match theme */
+agent-assist-container {
+  --agent-assist-font-family: 'Inter', sans-serif;
+  --agent-assist-primary-color: #2563eb;
+  --agent-assist-background-color: transparent;
+  --agent-assist-card-background-color: #ffffff;
+  --agent-assist-text-color: #1e293b;
+}
+
+@layer components {
+  .panel-card {
+    @apply bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden transition-all hover:shadow-md;
+  }
+}

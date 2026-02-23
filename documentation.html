@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentOS Master Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --secondary: #10B981;
+            --text-main: #1F2937;
+            --text-light: #6B7280;
+            --bg-page: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --border: #E5E7EB;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-top: 50px;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 30px;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        table thead tr {
+            background-color: var(--primary);
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table th,
+        table td {
+            padding: 15px 20px;
+        }
+
+        table tbody tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid var(--primary);
+        }
+
+        code {
+            background-color: #F3F4F6;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #1F2937;
+            color: #F9FAFB;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            margin: 20px 0;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .quick-links {
+            background: #EEF2FF;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 30px 0;
+            border: 1px solid #C7D2FE;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>AgentOS Master Documentation</h1>
+            <div class="subtitle">The Unified AI Co-Pilot for Inbound Contact Centers</div>
+            <div style="margin-top: 20px;" class="no-print">
+                <button onclick="window.print()"
+                    style="background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                    🖨️ Export to PDF
+                </button>
+            </div>
+        </header>
+
+        <div class="quick-links">
+            <h2>🌐 Quick Access Links</h2>
+            <h3>🚀 Production (Live)</h3>
+            <ul>
+                <li><strong>Main Dashboard:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app">agent-success-utsa5eayma-uc.a.run.app</a>
+                </li>
+                <li><strong>Voice Agent Interface:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app/voice">agent-success-utsa5eayma-uc.a.run.app/voice</a>
+                </li>
+                <li><strong>Admin Configuration:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app/admin">agent-success-utsa5eayma-uc.a.run.app/admin</a>
+                </li>
+                <li><strong>Customer Chat Widget:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app/customer">agent-success-utsa5eayma-uc.a.run.app/customer</a>
+                </li>
+            </ul>
+
+            <h3>💻 Local Development</h3>
+            <ul>
+                <li><strong>Main Dashboard:</strong> <code>http://localhost:3005</code></li>
+                <li><strong>Voice Agent:</strong> <code>http://localhost:3005/voice</code></li>
+                <li><strong>Admin Panel:</strong> <code>http://localhost:3005/admin</code></li>
+                <li><strong>Customer Chat:</strong> <code>http://localhost:3005/customer</code></li>
+            </ul>
+        </div>
+
+        <h2>1. Product Overview</h2>
+        <p><strong>AgentOS</strong> is a real-time AI coaching platform for inbound call center agents. It acts as a
+            silent AI co-pilot that reads conversation transcripts in real time and provides instructions, empathy
+            alerts, and smart replies to ensure every customer interaction is professional and compliant.</p>
+        <ul>
+            <li><strong>Agent Skill Gaps:</strong> Turns new hires into experts on day one.</li>
+            <li><strong>Script Compliance:</strong> Ensures identity verification and empathy are never skipped.</li>
+            <li><strong>Reduced AHT:</strong> Smart suggestions reduce thinking time and silence durations.</li>
+        </ul>
+
+        <h2>2. Pricing & ROI</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tier</th>
+                    <th>Price</th>
+                    <th>Key Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Free</strong></td>
+                    <td>$0/mo</td>
+                    <td>2 Agents, 100 calls/mo, Basic coaching</td>
+                </tr>
+                <tr>
+                    <td><strong>Pro</strong></td>
+                    <td>$45/agent/mo</td>
+                    <td>Unlimited calls, Custom prompts, 7-day retention</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise</strong></td>
+                    <td>Custom</td>
+                    <td>Dedicated instance, CRM Integration, PII Masking</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Business ROI</h3>
+        <ul>
+            <li><strong>20% AHT Reduction:</strong> Saves ~$150k+ annually for a 100-agent center.</li>
+            <li><strong>QA Automation:</strong> Replaces up to 80% of manual call monitoring with AI summaries.</li>
+            <li><strong>Ramp Time:</strong> Reduces agent onboarding time by ~40%.</li>
+        </ul>
+
+        <h2>3. Inbound Call Journey & AI Coaching</h2>
+        <p>AgentOS guides agents through 5 critical stages of an inbound call:</p>
+        <ol>
+            <li><strong>GREETING & VERIFICATION:</strong> Welcome warmly and confirm identity.</li>
+            <li><strong>ISSUE CAPTURE:</strong> Listen carefully and repeat back the issue.</li>
+            <li><strong>EMPATHY:</strong> Acknowledge and validate customer frustration.</li>
+            <li><strong>RESOLUTION:</strong> Offer a clear fix with concrete timelines.</li>
+            <li><strong>CLOSURE:</strong> Confirm satisfaction and invite final questions.</li>
+        </ol>
+
+        <h2>4. Feature List</h2>
+        <ul>
+            <li><strong>Real-time Transcription:</strong> Instant voice-to-text for all participants.</li>
+            <li><strong>AI Coaching Tags:</strong> Visual labels for critical moments (e.g., "Empathy Gap").</li>
+            <li><strong>Escalation Risk:</strong> Dynamic meter predicting potential supervisor requests.</li>
+            <li><strong>Smart Replies:</strong> Professionally crafted phrases to say or play (TTS).</li>
+            <li><strong>Post-Call Summary:</strong> Full QA reports generated in seconds.</li>
+        </ul>
+
+        <h2>5. Knowledge Assist (RAG) <span class="badge">New</span></h2>
+        <p>The Knowledge Assist feature leverages Retrieval Augmented Generation to provide instant answers:</p>
+        <ul>
+            <li><strong>Modular Sidebar:</strong> A dedicated space for knowledge results.</li>
+            <li><strong>Manual Search:</strong> Ad-hoc queries against your uploaded policies.</li>
+            <li><strong>Document Indexing:</strong> Seamless PDF uploads via the Admin Panel.</li>
+            <li><strong>Knowledge Snippets:</strong> Relevant chunks of text surfaced automatically based on the call
+                context.</li>
+        </ul>
+
+        <h2>6. System Architecture</h2>
+        <p>AgentOS is built on a globally scalable, real-time architecture, leveraging the best-in-class Google Cloud
+            managed services.</p>
+
+        <div
+            style="background: #111827; color: #10B981; padding: 40px; border-radius: 16px; margin: 25px 0; font-family: 'Courier New', monospace; font-size: 0.85em; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+            <div style="text-align: center; font-weight: bold; margin-bottom: 20px; color: #6366F1;">--- CLOUD
+                ARCHITECTURE OVERVIEW ---</div>
+            <div style="display: flex; justify-content: space-around; text-align: center; gap: 10px;">
+                <div style="flex: 1; border: 1px dashed #374151; padding: 15px; border-radius: 8px;">
+                    <div style="color: #F3F4F6; margin-bottom: 10px;">PUBLIC INTERNET</div>
+                    <div style="background: #374151; padding: 8px; margin: 5px; border-radius: 4px;">Agent Browser</div>
+                    <div style="background: #374151; padding: 8px; margin: 5px; border-radius: 4px;">Customer Browser
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; font-size: 20px;">⚡</div>
+                <div
+                    style="flex: 2; border: 1px solid #6366F1; padding: 15px; border-radius: 8px; background: #1F2937;">
+                    <div style="color: #6366F1; font-weight: bold; margin-bottom: 15px;">GOOGLE CLOUD RUN</div>
+                    <div style="display: flex; gap: 10px; justify-content: center;">
+                        <div style="background: #4F46E5; color: white; padding: 10px; border-radius: 6px; flex: 1;">
+                            Express.js Server</div>
+                        <div style="background: #4F46E5; color: white; padding: 10px; border-radius: 6px; flex: 1;">
+                            Socket.IO (WS)</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; font-size: 20px;">⚡</div>
+                <div style="flex: 1; border: 1px dashed #374151; padding: 15px; border-radius: 8px;">
+                    <div style="color: #F3F4F6; margin-bottom: 10px;">MANAGED SERVICES</div>
+                    <div
+                        style="background: #059669; color: white; padding: 6px; margin: 4px; border-radius: 4px; font-size: 11px;">
+                        Gemini AI</div>
+                    <div
+                        style="background: #059669; color: white; padding: 6px; margin: 4px; border-radius: 4px; font-size: 11px;">
+                        Firebase (DB)</div>
+                    <div
+                        style="background: #059669; color: white; padding: 6px; margin: 4px; border-radius: 4px; font-size: 11px;">
+                        Cloud TTS</div>
+                </div>
+            </div>
+            <div style="margin-top: 30px; border-top: 1px solid #374151; padding-top: 20px;">
+                <li style="list-style: none;"><strong>1. STT:</strong> Browser-native Web Speech API captures voice.
+                </li>
+                <li style="list-style: none;"><strong>2. Sync:</strong> Socket.IO rooms sync transcripts in &lt; 200ms.
+                </li>
+                <li style="list-style: none;"><strong>3. Coaching:</strong> Gemini 1.5 Flash updates instructions after
+                    speech.</li>
+                <li style="list-style: none;"><strong>4. RAG:</strong> Semantic search identifies policy snippets from
+                    Vector DB.</li>
+            </div>
+        </div>
+
+        <h3>Infrastructure Highlights</h3>
+        <ul>
+            <li><strong>Autoscaling:</strong> Cloud Run instances scale-up instantly to meet call demand.</li>
+            <li><strong>Consistency:</strong> Persistent Socket.IO connections via stickiness and min-instances.</li>
+            <li><strong>Security:</strong> All secrets (API keys, Firestore SA) are managed via Google Secret Manager.
+            </li>
+        </ul>
+
+        <h2>7. Tech Stack</h2>
+        <ul>
+            <li><strong>Frontend:</strong> React 18, Vite, TypeScript, Tailwind CSS.</li>
+            <li><strong>Backend:</strong> Node.js, Express, Socket.IO v4.</li>
+            <li><strong>AI Core:</strong> Gemini 1.5 Flash.</li>
+            <li><strong>Voice:</strong> Web Speech API, Google Cloud Text-to-Speech.</li>
+        </ul>
+
+        <h2>8. Local Setup</h2>
+        <pre>
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+        </pre>
+        <p>Ensure your <code>.env</code> file contains the <code>GEMINI_API_KEY</code> and
+            <code>GOOGLE_APPLICATION_CREDENTIALS</code>.</p>
+
+        <h2>9. GCP Deployment</h2>
+        <p>Deployment is handled via Container Registry and Cloud Run:</p>
+        <pre>
+gcloud builds submit --tag gcr.io/[PROJECT_ID]/agent-success
+gcloud run deploy agent-success --image gcr.io/[PROJECT_ID]/agent-success --min-instances 1
+        </pre>
+
+        <h2>10. Admin Configuration Guide</h2>
+        <p>Customize your AI co-pilot without code:</p>
+        <ul>
+            <li><strong>System Prompt:</strong> Define the persona and rules.</li>
+            <li><strong>Coaching Prompt:</strong> Define QA stages and escalation triggers.</li>
+            <li><strong>Knowledge Base:</strong> Manage the documents used for Knowledge Assist.</li>
+        </ul>
+
+        <footer
+            style="margin-top: 80px; text-align: center; color: var(--text-light); border-top: 1px solid var(--border); padding-top: 40px;">
+            <p>Document Version: 1.5 | February 2026 | AgentOS Platform</p>
+        </footer>
+    </div>
+</body>
+
+</html>

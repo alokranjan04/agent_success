@@ -1,0 +1,11 @@
+
+> agent-success@1.0.0 dev:frontend
+> vite
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m1414[22m[2m[0m ms[22m
+
+  [32mΓ₧£[39m  [1mLocal[22m:   [36mhttp://localhost:[1m3005[22m/[39m
+[2m  [32mΓ₧£[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m1:32:40 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
+[2m9:02:40 am[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdocumentation.html[22m

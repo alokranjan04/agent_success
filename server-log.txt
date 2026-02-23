@@ -1,0 +1,119 @@
+
+> agent-success@1.0.0 dev:backend
+> nodemon server/index.js
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:48436) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Server running on port 5005
+[Socket] Client connected: 2ap1sjY4_as8IMhTAAAO
+[Socket] Client connected: YD7QZIOqd7-Mfw9LAAAP
+[Socket] Client connected: T7y6UUNVxy5etHvXAAAQ
+[Socket] Client connected: iAmUmcfFcrkSRhiaAAAR
+[Socket] Client connected: EvJDpLcmVylV8IKNAAAS
+[Socket] Client connected: mMqVPpujgGGRIr1GAAAT
+[Socket] Client connected: v064isIPh2fMy06NAAAU
+[Socket] Client connected: A80Hjb6hE9Q_rUOpAAAV
+[Socket] Client connected: 3psxa9xQ1hkFiZZZAAAW
+[Socket] Client connected: Wi7jw_ah5URxg8qvAAAX
+[Socket] Client connected: Qi8M8fWOQ310KZ2UAAAY
+[Socket] Client connected: 9m80nxGMfapt9LBMAAAZ
+[Socket] Client connected: -CMWKzbgKJJaIjXXAAAa
+[Socket] Client connected: nnj1QM-kZhCSt_g2AAAb
+[Socket] Client connected: zZoCxdpad4WhZwDWAAAh
+[Socket] Client connected: zKbSzuM60W5vHoSkAAAi
+[Socket] Client connected: YxoPtmgOLopEag8pAAAj
+[Socket] Client connected: ZjHJ7NjArUl4Xl4CAAAk
+[Socket] Client connected: 8kjkAFk9fpAhaGlDAAAo
+[Socket] Client connected: JVoQ5OEfpihWVyFTAAAp
+[Socket] Client connected: _G828oj0tUPwYkg5AAAq
+[Socket] Client connected: S-gsxNrDfWWsEIqJAAAr
+[Socket] Client connected: 9_vCJqNRnWHVaW19AAAt
+[Firebase] Could not load config: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[Socket] Client connected: 9zzhPmOWS5g0TGAuAAAw
+[Socket] Client connected: fw0ZAWS-L7tjXOs6AAAx
+[Socket] Client connected: M6gev_QDRJNXNt9BAAAz
+[Socket] Client connected: GFzhPLpenWqQ4YYbAAA1
+[Socket] Client connected: 5TwaBuhuwAI59gkQAAA3
+[Socket] Client connected: nlnDhgToQhZT6JCTAAA5
+[Socket] Client connected: bwG3op3eWQqDRl3GAAA_
+[Socket] Client connected: 1abzmvP3o9qCCQFSAABB
+[Socket] Client connected: RJRMQvuHkZVXmYecAABC
+[Socket] Client connected: ebgKFtmMy1-8BIWuAABD
+[Socket] Client connected: Ml30MYi9oWDa3HSEAABE
+[Socket] Client connected: _0MwuKtgPNT5UbmVAABF
+[Socket] Client connected: V3WnjXmlx5fyR6yGAABI
+[Socket] Client connected: l4uHLsYTKv9bmmrKAABJ
+[Socket] Client connected: jrGoEj5_Laz5MyJFAABL
+[2026-02-22T19:29:00.102Z] POST /api/admin/documents
+[Admin] Document uploaded: test_refund_policy.txt
+[Knowledge] Processing: test_refund_policy.txt
+[Knowledge] Generated 1 chunks
+[Knowledge] Successfully indexed test_refund_policy.txt
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:47576) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Server running on port 5005
+[Socket] Client connected: N4UaCd9WmGrKkVp7AAAF
+[Socket] Client connected: N5bw_CUtolKvWJJyAAAG
+[Socket] Client connected: oHE85T9s101C7AJNAAAH
+[Socket] Client connected: s7p8bh-L4Qb0lFhyAAAI
+[Socket] Client connected: liOjoXLiyMs4BB4AAAAJ
+[Socket] Client connected: nwgSLOzXKpiAzG-kAAAL
+[Socket] Client connected: XJlkcvGkQURbxauvAAAN
+[Socket] Client connected: 6Jt7ZDKlbVlLsCUfAAAa
+[Socket] Client connected: jHyWjfla_9E9f-hnAAAg
+[Socket] Client connected: fcj7JWbdAsRg2yqZAAAi
+[Socket] Client connected: aqG3Z1vgWiHYrXLPAAAm
+[Socket] Client connected: molS4IGbZsAUr4EKAAAn
+[Socket] Client connected: 2Lvn9mov6PMKPdWrAAAo
+[Socket] Client connected: o3tFOA0Pd7yek0wgAAAp
+[Socket] Client connected: hlIQRHvK_595jrutAAAq
+[Socket] Client connected: u_QEKcWHQsbGjqNaAAAr
+[Socket] Client connected: oZbSeCGzZlvb-StKAAAs
+[Socket] Client connected: 5f19an6ee0SwbKwWAAAt
+[Socket] Client connected: DL2rCQZI93MaGgznAAAu
+[Socket] Client connected: LBZmoU0KGR_kK9RbAAAv
+[Socket] Client connected: ULTFZlOKemlg7Kj7AAAw
+[Socket] Client connected: ZgHFwMpEEl4cUdEPAAAz
+[Socket] Client connected: Kot4FzfLoCFXrqvQAAA0
+[Socket] Client connected: Y9cJsxzHONl5xR2JAAA1
+[Socket] Client connected: 2vqj5X1BzUfs6C5bAAA2
+[Socket] Client connected: PaGioSkV5PyMNBbOAAA3
+[Socket] Client connected: pcuYBorAVNiAw0dhAAA4
+[Socket] Client connected: ZF9b7K1Z0fNhpIBrAAA5
+[Socket] Client connected: KOCwI2e9vns_IVkPAAA6
+[Socket] Client connected: uJjqZ1Q0ziYEroegAAA7
+[Socket] Client connected: RpNeGB7IwtTSAsxOAAA-
+[Socket] Client connected: aRdQP3xOoB4V5ulTAAA_
+[Socket] Client connected: ptLbIwrKt9vkDirlAABB
+[Socket] Client connected: ksKkR935nSxTQyDUAABG
+[Socket] Client connected: -IpQ-RZphe2yHCQVAABH
+[Socket] Client connected: WhWK69zODoW9i-bgAABI
+[Socket] Client connected: --dfhRms0KFeLuEtAABK
+[Socket] Client connected: 7KALMkT5jz6DxP-XAABL
+[Firebase] Could not load config: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2026-02-22T19:29:49.396Z] GET /
+[2026-02-22T19:33:40.593Z] GET /
+[2026-02-22T19:34:12.158Z] GET /
+[2026-02-22T19:34:20.957Z] GET /voice
+[Socket] Client disconnected: pcuYBorAVNiAw0dhAAA4
+[Socket] Client disconnected: N5bw_CUtolKvWJJyAAAG
+[Socket] Client disconnected: ZF9b7K1Z0fNhpIBrAAA5
+[Socket] Client disconnected: aRdQP3xOoB4V5ulTAAA_
+[2026-02-22T19:37:21.132Z] GET /voice
+[2026-02-22T19:37:30.719Z] GET /admin
+[2026-02-22T19:39:16.166Z] GET /
