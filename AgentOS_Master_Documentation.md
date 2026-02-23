@@ -8,10 +8,10 @@
 Easily access the platform across different environments.
 
 ### 🚀 Production (Live)
-- **Main Dashboard:** [agent-success-utsa5eayma-uc.a.run.app](https://agent-success-utsa5eayma-uc.a.run.app)
-- **🎤 Voice Agent Interface:** [agent-success-utsa5eayma-uc.a.run.app/voice](https://agent-success-utsa5eayma-uc.a.run.app/voice)
-- **⚙️ Admin Configuration:** [agent-success-utsa5eayma-uc.a.run.app/admin](https://agent-success-utsa5eayma-uc.a.run.app/admin)
-- **💬 Customer Chat Widget:** [agent-success-utsa5eayma-uc.a.run.app/customer](https://agent-success-utsa5eayma-uc.a.run.app/customer)
+Main Dashboard: [agent-success-utsa5eayma-uc.a.run.app](https://agent-success-utsa5eayma-uc.a.run.app)
+🎤 Voice Agent Interface: [agent-success-utsa5eayma-uc.a.run.app/voice](https://agent-success-utsa5eayma-uc.a.run.app/voice)
+⚙️ Admin Configuration: [agent-success-utsa5eayma-uc.a.run.app/admin](https://agent-success-utsa5eayma-uc.a.run.app/admin)
+💬 Customer Chat Widget: [agent-success-utsa5eayma-uc.a.run.app/customer](https://agent-success-utsa5eayma-uc.a.run.app/customer)
 
 ### 💻 Local Development
 - **Main Dashboard:** [localhost:3005](http://localhost:3005)

@@ -167,3 +167,29 @@ Caused by:
 [2m1:47:00 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
 [2m1:47:24 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
 [2m1:57:46 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
+[2m4:04:33 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
+4:04:33 pm [vite] Internal server error:   x Expected '</', got 'ident'
+     ,-[C:/Users/Alok Ranjan/Documents/Agent Success/src/App.tsx:557:1]
+ 554 |                                 </div>
+ 555 |                             </div>
+ 556 | 
+ 557 |                         </div>
+     :                           ^^^
+ 558 |                 </>
+ 559 |                 ) : (
+ 559 |                 <div className="flex-1 flex flex-col items-center justify-center bg-white text-center p-12">
+     `----
+
+
+Caused by:
+    Syntax Error
+  Plugin: vite:react-swc
+  File: C:/Users/Alok Ranjan/Documents/Agent Success/src/App.tsx
+  
+[2m4:08:59 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
+[2m4:55:58 pm[22m [36m[1m[vite][22m[39m [32m.env changed, restarting server...[39m
+[2m4:55:58 pm[22m [36m[1m[vite][22m[39m server restarted.
+[2m5:14:58 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
+[2m5:39:44 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mAgentOS_Master_Documentation.html[22m
+[2m6:27:14 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mAgentOS_Master_Documentation.html[22m
+[2m6:27:16 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdocumentation.html[22m

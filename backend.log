@@ -616,3 +616,298 @@ SyntaxError: Unexpected token 'q', "query=refund" is not valid JSON
 [Socket] Client connected: dlLCX7FZMnjbF22PAAI5
 [Socket] Client connected: VM4tbHOnqrQlO5ZDAAI6
 [Socket] Client connected: lzDMZ_vw5wWGInOaAAI8
+[Socket] Client disconnected: lzDMZ_vw5wWGInOaAAI8
+[Socket] Client disconnected: gM5MjqeLht9Dwd8RAAI4
+[Socket] Client disconnected: fwg3K4ziBLw8wu0rAAI3
+[Socket] Client disconnected: dlLCX7FZMnjbF22PAAI5
+[Socket] Client disconnected: VM4tbHOnqrQlO5ZDAAI6
+[Socket] Client disconnected: D9JMhsyND0WZng9KAAIy
+[Socket] Client disconnected: EvyLxJcfILVqS76gAAIt
+[Socket] Client disconnected: LrxDBMWXRLfTmqh-AAIw
+[Socket] Client disconnected: cGZdFuB7sL4xM6sWAAIx
+[Socket] Client disconnected: xtv5sFkNo34-tANNAAIv
+[Socket] Client disconnected: hVlmXwzytMdtU_ETAAIu
+[Socket] Client connected: d56qHgJM7Un5cpMmAAJF
+[Socket] Client connected: TGH-8oTLvxXyPW4TAAJG
+[Socket] Client connected: vbPYz2BAkkrnNEnjAAJH
+[Socket] Client connected: fdqNj8CWOo3W8mOeAAJI
+[Socket] Client connected: sPT4hEJL1w2eI_SYAAJM
+[Socket] Client connected: 9yXYWsnUjCYbgKzVAAJN
+[Socket] Client connected: fQrLsm178qs0zdaEAAJO
+[Socket] Client connected: N4--CsF7CF1qY4YkAAJP
+[Socket] Client connected: DUPaLHojtG-8F7nmAAJQ
+[Socket] Client connected: qcF_SFTkjhML3T_YAAJR
+[Socket] Client connected: dOrMRKUpjObtOj8IAAJS
+[Socket] Client disconnected: 9yXYWsnUjCYbgKzVAAJN
+[Socket] Client disconnected: dOrMRKUpjObtOj8IAAJS
+[Socket] Client disconnected: qcF_SFTkjhML3T_YAAJR
+[Socket] Client disconnected: DUPaLHojtG-8F7nmAAJQ
+[Socket] Client disconnected: N4--CsF7CF1qY4YkAAJP
+[Socket] Client disconnected: fQrLsm178qs0zdaEAAJO
+[Socket] Client connected: GJmfs48oe6_GMVHIAAJX
+[Socket] Client connected: i3Bm5a7VVwhfRny_AAJY
+[Socket] Client connected: qKxUlP6-FFCSYPRtAAJZ
+[Socket] Client connected: ORp1VCQOO7JWDdUdAAJa
+[Socket] Client connected: BSWJsX2kClAdjehuAAJc
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[Socket] Client disconnected: d56qHgJM7Un5cpMmAAJF
+[Socket] Client disconnected: fdqNj8CWOo3W8mOeAAJI
+[Socket] Client disconnected: vbPYz2BAkkrnNEnjAAJH
+[Socket] Client disconnected: TGH-8oTLvxXyPW4TAAJG
+[Socket] Client disconnected: sPT4hEJL1w2eI_SYAAJM
+[Socket] Client connected: _14rNTfgc29r2OHrAAJh
+[Socket] Client connected: RYUNv9nJhAusaEPhAAJi
+[Socket] Client connected: CkGG4Qiqtt7IQOPJAAJj
+[Socket] Client connected: AEnfhIXjuSYnQwvPAAJk
+[2026-02-23T10:39:33.103Z] GET /api/admin/config
+[2026-02-23T10:39:33.115Z] GET /api/admin/config
+[2026-02-23T10:41:09.921Z] GET /api/admin/config
+[Socket] Client disconnected: _14rNTfgc29r2OHrAAJh
+[Socket] Client disconnected: RYUNv9nJhAusaEPhAAJi
+[Socket] Client disconnected: CkGG4Qiqtt7IQOPJAAJj
+[Socket] Client disconnected: AEnfhIXjuSYnQwvPAAJk
+[Socket] Client connected: OxemfBsFXgzhCj5pAAJp
+[Socket] Client connected: oQ-Y_ha8a347m5rRAAJq
+[Socket] Client connected: OQ4UyIIAoCCaE4kvAAJr
+[Socket] Client connected: gNmFMiUuouNOygFGAAJs
+[2026-02-23T10:41:22.484Z] GET /api/admin/config
+[2026-02-23T10:41:22.488Z] GET /api/admin/config
+[Socket] Client disconnected: OxemfBsFXgzhCj5pAAJp
+[Socket] Client disconnected: gNmFMiUuouNOygFGAAJs
+[Socket] Client disconnected: OQ4UyIIAoCCaE4kvAAJr
+[Socket] Client disconnected: oQ-Y_ha8a347m5rRAAJq
+[Socket] Client connected: 38-9EwHn0rfNCJ27AAJx
+[Socket] Client connected: Ijmh3Co1ThXsof-ZAAJy
+[Socket] Client connected: L6r6Vjh7mTPgylqrAAJz
+[Socket] Client connected: gqYvhSznDfUytR9NAAJ0
+[2026-02-23T10:43:51.641Z] GET /api/admin/config
+[2026-02-23T10:43:51.643Z] GET /api/admin/config
+[Socket] Client disconnected: 38-9EwHn0rfNCJ27AAJx
+[Socket] Client disconnected: gqYvhSznDfUytR9NAAJ0
+[Socket] Client disconnected: L6r6Vjh7mTPgylqrAAJz
+[Socket] Client disconnected: Ijmh3Co1ThXsof-ZAAJy
+[Socket] Client connected: a7PsDMSY4pbWBtZEAAJ5
+[Socket] Client connected: b35vkIZB4TlZW_BGAAJ6
+[Socket] Client connected: Y8RVdUGCPOByusKMAAJ7
+[Socket] Client connected: 7I1WGXYtj_LMmQ9ZAAJ8
+[2026-02-23T10:44:55.770Z] GET /api/admin/config
+[2026-02-23T10:44:55.774Z] GET /api/admin/config
+[Socket] Client disconnected: a7PsDMSY4pbWBtZEAAJ5
+[Socket] Client disconnected: 7I1WGXYtj_LMmQ9ZAAJ8
+[Socket] Client disconnected: Y8RVdUGCPOByusKMAAJ7
+[Socket] Client disconnected: b35vkIZB4TlZW_BGAAJ6
+[Socket] Client connected: GZBw_lmdXZPI9YjdAAKB
+[Socket] Client connected: KHvH2XHVnA5GtaO5AAKC
+[Socket] Client connected: 3JVRGCXRFKJQwRTRAAKD
+[Socket] Client connected: QGtGZKHCfOPZKLMzAAKE
+[2026-02-23T10:55:26.208Z] GET /api/admin/config
+[2026-02-23T10:55:26.216Z] GET /api/admin/config
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:66728) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5005
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at file:///C:/Users/Alok%20Ranjan/Documents/Agent%20Success/server/index.js:692:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5005
+}
+
+Node.js v24.13.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:62928) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5007
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at file:///C:/Users/Alok%20Ranjan/Documents/Agent%20Success/server/index.js:692:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5007
+}
+
+Node.js v24.13.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:43784) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5007
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at file:///C:/Users/Alok%20Ranjan/Documents/Agent%20Success/server/index.js:692:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5007
+}
+
+Node.js v24.13.1
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:65764) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5007
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at file:///C:/Users/Alok%20Ranjan/Documents/Agent%20Success/server/index.js:692:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5007
+}
+
+Node.js v24.13.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:21468) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5007
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at file:///C:/Users/Alok%20Ranjan/Documents/Agent%20Success/server/index.js:692:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5007
+}
+
+Node.js v24.13.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:62084) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5007
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at file:///C:/Users/Alok%20Ranjan/Documents/Agent%20Success/server/index.js:693:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5007
+}
+
+Node.js v24.13.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
