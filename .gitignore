@@ -17,6 +17,7 @@ dist-ssr
 .env.development
 *.json
 !package.json
+!package-lock.json
 !tsconfig.json
 !firebase.json
 !service-account-example.json
