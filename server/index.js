@@ -99,6 +99,7 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 const allowedOrigins = [
+    'https://aseployment-536573436709.asia-south1.run.app',
     'https://agent-success-utsa5eayma-uc.a.run.app',
     'http://localhost:3005',
     'http://localhost:5007'
