@@ -434,9 +434,10 @@ const App: React.FC = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 md:w-3.5 md:h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" /></svg>
                             <span className="hidden xs:inline">Voice</span>
                         </a>
+                        <a href="/customer" target="_blank" className="hidden sm:inline text-[10px] md:text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Customer View</a>
                         <button
                             onClick={() => setShowMobileCoaching(!showMobileCoaching)}
-                            className="xl:hidden p-1.5 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors"
+                            className="lg:hidden p-1.5 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -601,7 +602,7 @@ const App: React.FC = () => {
                                 </aside>
                             </div>
 
-                            <aside className="w-[340px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-6 shrink-0 space-y-6 hidden xl:block">
+                            <aside className="w-[340px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-6 shrink-0 space-y-6 hidden lg:block">
                                 <section>
                                     <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Smart Replies</h3>
                                     <div className="space-y-2">
