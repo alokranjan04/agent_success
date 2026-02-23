@@ -422,7 +422,7 @@ const App: React.FC = () => {
                             <span className="hidden xs:inline">Voice</span>
                         </a>
                         <a href="/customer" target="_blank" className="hidden sm:inline text-[10px] md:text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Customer View</a>
-                        <button onClick={() => setShowMobileCoaching(!showMobileCoaching)} className="lg:hidden p-1.5 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors">
+                        <button onClick={() => setShowMobileCoaching(!showMobileCoaching)} className="md:hidden p-1.5 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                         </button>
                         <a href="/admin" target="_blank" className="hidden sm:inline text-[10px] md:text-xs font-bold text-slate-500 hover:text-slate-700 transition-colors">Admin</a>
@@ -512,7 +512,7 @@ const App: React.FC = () => {
                         </div>
                     )}
 
-                    <div className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity xl:hidden ${showMobileCoaching ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={() => setShowMobileCoaching(false)}>
+                    <div className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity md:hidden ${showMobileCoaching ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={() => setShowMobileCoaching(false)}>
                         <aside className={`absolute right-0 top-0 h-full w-[280px] xs:w-[320px] bg-slate-50 shadow-2xl transition-transform duration-300 flex flex-col p-5 gap-6 ${showMobileCoaching ? 'translate-x-0' : 'translate-x-full'}`} onClick={e => e.stopPropagation()}>
                             <div className="flex items-center justify-between shrink-0">
                                 <h2 className="font-black text-slate-800 uppercase tracking-tighter text-lg">Live Coaching</h2>
@@ -554,7 +554,7 @@ const App: React.FC = () => {
                         </aside>
                     </div>
 
-                    <aside className="w-[340px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-6 shrink-0 space-y-6 hidden lg:block">
+                    <aside className="w-72 xl:w-[340px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-6 shrink-0 space-y-6 hidden md:block">
                         <section>
                             <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Smart Replies</h3>
                             <div className="space-y-2">
