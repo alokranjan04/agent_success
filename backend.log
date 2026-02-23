@@ -911,3 +911,13 @@ Emitted 'error' event on Server instance at:
 
 Node.js v24.13.1
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+WARNING: google-application-credentials not found. TTS will operate in mock mode.
+(node:57852) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Server running on port 5007
+[Firebase] Could not load config: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
