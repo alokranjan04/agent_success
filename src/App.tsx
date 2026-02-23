@@ -234,6 +234,8 @@ const App: React.FC = () => {
     const [summaryText, setSummaryText] = useState<string | null>(null);
     const [showSummary, setShowSummary] = useState(false);
     const [summaryLoading, setSummaryLoading] = useState(false);
+    const [showMobileSidebar, setShowMobileSidebar] = useState(false);
+    const [showMobileCoaching, setShowMobileCoaching] = useState(false);
     const chatEndRef = useRef<HTMLDivElement>(null);
     const timerRef = useRef(0);
 
@@ -310,6 +312,7 @@ const App: React.FC = () => {
         setActiveConvId(id);
         setMessages([]);
         socket.emit('join_conversation', id);
+        setShowMobileSidebar(false);
     };
 
     const handleSendAgentMessage = () => {
@@ -388,27 +391,37 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen w-full bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 overflow-hidden">
+        <div className="flex flex-col h-screen h-[100dvh] w-full bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 overflow-hidden">
             {/* Top Navigation Bar */}
-            <header className="h-14 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0 z-30 shadow-sm">
-                <div className="flex items-center gap-6">
+            <header className="h-14 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-6 shrink-0 z-30 shadow-sm">
+                <div className="flex items-center gap-3 md:gap-6">
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        onClick={() => setShowMobileSidebar(!showMobileSidebar)}
+                        className="p-1.5 md:hidden bg-slate-100 rounded-lg text-slate-600 hover:bg-slate-200 transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                        <div className="w-7 h-7 md:w-8 md:h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 2V3z" />
                             </svg>
                         </div>
-                        <span className="font-bold text-lg tracking-tight text-slate-800">{companyName}</span>
+                        <span className="font-bold text-base md:text-lg tracking-tight text-slate-800 hidden xs:inline">{companyName}</span>
                     </div>
 
-                    <div className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-[10px] font-bold ring-1 ring-blue-100 flex items-center gap-1.5 transition-all">
+                    <div className="bg-blue-50 text-blue-600 px-2 md:px-3 py-0.5 md:py-1 rounded-full text-[9px] md:text-[10px] font-bold ring-1 ring-blue-100 flex items-center gap-1 md:gap-1.5 transition-all">
                         <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-                        {conversations.length} Active {conversations.length === 1 ? 'Session' : 'Sessions'}
+                        {conversations.length} <span className="hidden sm:inline">Active</span> {conversations.length === 1 ? 'Session' : 'Sessions'}
                     </div>
                 </div>
 
-                <div className="flex items-center gap-8">
-                    <div className="flex items-center gap-4 text-slate-500 font-medium text-xs">
+                <div className="flex items-center gap-3 md:gap-8">
+                    <div className="hidden sm:flex items-center gap-4 text-slate-500 font-medium text-xs">
                         <div className="flex items-center gap-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -416,22 +429,32 @@ const App: React.FC = () => {
                             <span>{timer}</span>
                         </div>
                     </div>
-                    <div className="flex items-center gap-4 border-l border-slate-200 pl-8">
-                        <a href="/voice" target="_blank" className="flex items-center gap-1 text-xs font-bold text-purple-600 hover:text-purple-700 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" /></svg>
-                            Voice
+                    <div className="flex items-center gap-3 md:gap-4 border-l border-slate-200 pl-3 md:pl-8">
+                        <a href="/voice" target="_blank" className="flex items-center gap-1 text-[10px] md:text-xs font-bold text-purple-600 hover:text-purple-700 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 md:w-3.5 md:h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" /></svg>
+                            <span className="hidden xs:inline">Voice</span>
                         </a>
-                        <a href="/customer" target="_blank" className="text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Customer View</a>
-                        <a href="/admin" target="_blank" className="text-xs font-bold text-slate-600 hover:text-slate-800 transition-colors">Admin</a>
+                        <button
+                            onClick={() => setShowMobileCoaching(!showMobileCoaching)}
+                            className="xl:hidden p-1.5 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </button>
+                        <a href="/admin" target="_blank" className="hidden sm:inline text-[10px] md:text-xs font-bold text-slate-500 hover:text-slate-700 transition-colors">Admin</a>
                     </div>
                 </div>
             </header>
 
-            <main className="flex-1 flex overflow-hidden">
+            <main className="flex-1 flex overflow-hidden relative">
                 {/* Conversations Sidebar */}
-                <div className="w-64 bg-slate-50 border-r border-slate-200 flex flex-col shrink-0">
-                    <div className="p-4 border-b border-slate-200 bg-white">
+                <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-slate-50 border-r border-slate-200 flex flex-col transition-transform duration-300 transform md:relative md:translate-x-0 ${showMobileSidebar ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}`}>
+                    <div className="p-4 border-b border-slate-200 bg-white flex items-center justify-between">
                         <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Active Chats</h2>
+                        <button onClick={() => setShowMobileSidebar(false)} className="md:hidden text-slate-400 p-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l18 18" /></svg>
+                        </button>
                     </div>
                     <div className="flex-1 overflow-y-auto py-2">
                         {conversations.length === 0 ? (
@@ -458,15 +481,23 @@ const App: React.FC = () => {
                             ))
                         )}
                     </div>
-                </div>
+                </aside>
+
+                {/* Sidebar Overlay */}
+                {showMobileSidebar && (
+                    <div
+                        className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-30 md:hidden"
+                        onClick={() => setShowMobileSidebar(false)}
+                    />
+                )}
 
                 {/* Main Content Pane */}
                 <div className="flex-1 flex overflow-hidden">
                     {activeConvId ? (
                         <>
-                            <div className="flex-1 flex flex-col bg-white overflow-hidden">
-                                <div className="flex-1 overflow-y-auto px-8 py-6 space-y-6 flex flex-col items-center">
-                                    <div className="w-full max-w-2xl space-y-6">
+                            <div className="flex-1 flex flex-col bg-white overflow-hidden relative">
+                                <div className="flex-1 overflow-y-auto px-4 md:px-8 py-4 md:py-6 space-y-4 md:space-y-6 flex flex-col items-center custom-scrollbar">
+                                    <div className="w-full max-w-2xl space-y-4 md:space-y-6">
                                         {messages.map((m, i) => (
                                             <div key={i} className="flex gap-4 group/msg">
                                                 <span className="shrink-0 w-8 text-[10px] font-bold text-slate-300 mt-1">{m.time}</span>
@@ -481,7 +512,7 @@ const App: React.FC = () => {
                                                             </svg>
                                                         </button>
                                                     </div>
-                                                    <div className={`p-4 rounded-2xl text-[13px] leading-relaxed ${m.role === 'agent' ? 'bg-blue-50 text-slate-800' : 'bg-slate-100 text-slate-700'}`}>
+                                                    <div className={`p-3 md:p-4 rounded-2xl text-[12px] md:text-[13px] leading-relaxed ${m.role === 'agent' ? 'bg-blue-50 text-slate-800 rounded-tr-sm' : 'bg-slate-100 text-slate-700 rounded-tl-sm'}`}>
                                                         {m.text}
                                                     </div>
                                                 </div>
@@ -501,25 +532,73 @@ const App: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="p-6 border-t border-slate-200 bg-white z-10">
-                                    <div className="w-full max-w-2xl mx-auto space-y-4">
-                                        <div className="flex items-center gap-3">
+                                <div className="p-4 md:p-6 border-t border-slate-200 bg-white z-10">
+                                    <div className="w-full max-w-2xl mx-auto space-y-3 md:space-y-4">
+                                        <div className="flex items-center gap-2 md:gap-3">
                                             <input
-                                                className="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all font-medium"
+                                                className="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 text-[13px] md:text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all font-medium"
                                                 placeholder="Type your reply..."
                                                 value={agentInput}
                                                 onChange={e => setAgentInput(e.target.value)}
                                                 onKeyDown={e => e.key === 'Enter' && handleSendAgentMessage()}
                                             />
-                                            <button onClick={handleSendAgentMessage} className="px-6 py-3 bg-blue-600 rounded-xl text-white text-sm font-bold hover:bg-blue-700 transition-all shadow-md">Send</button>
+                                            <button onClick={handleSendAgentMessage} className="px-4 md:px-6 py-2.5 md:py-3 bg-blue-600 rounded-xl text-white text-[13px] md:text-sm font-bold hover:bg-blue-700 transition-all shadow-md shrink-0">Send</button>
                                         </div>
-                                        <div className="flex gap-2 pt-3 border-t border-slate-100">
-                                            <button onClick={handleClearChat} className="text-[10px] font-bold text-slate-500 hover:text-red-500 transition-colors">Clear Chat</button>
-                                            <button onClick={handleGenerateSummary} disabled={summaryLoading} className="text-[10px] font-bold text-emerald-600 hover:text-emerald-700 transition-colors">Generate Summary</button>
-                                            <button onClick={handleEndConversation} disabled={summaryLoading} className="text-[10px] font-bold text-rose-600 hover:text-rose-700 ml-auto transition-colors">End Conversation</button>
+                                        <div className="flex flex-wrap gap-2 md:gap-3 pt-2 md:pt-3 border-t border-slate-100">
+                                            <button onClick={handleClearChat} className="text-[9px] md:text-[10px] font-bold text-slate-500 hover:text-red-500 transition-colors uppercase tracking-wider">Clear</button>
+                                            <button onClick={handleGenerateSummary} disabled={summaryLoading} className="text-[9px] md:text-[10px] font-bold text-emerald-600 hover:text-emerald-700 transition-colors uppercase tracking-wider">Summary</button>
+                                            <button onClick={handleEndConversation} disabled={summaryLoading} className="text-[9px] md:text-[10px] font-bold text-rose-600 hover:text-rose-700 ml-auto transition-colors uppercase tracking-wider">End Session</button>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Mobile Coaching Drawer */}
+                            <div
+                                className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity xl:hidden ${showMobileCoaching ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                                onClick={() => setShowMobileCoaching(false)}
+                            >
+                                <aside
+                                    className={`absolute right-0 top-0 h-full w-[280px] xs:w-[320px] bg-slate-50 shadow-2xl transition-transform duration-300 flex flex-col p-5 gap-6 ${showMobileCoaching ? 'translate-x-0' : 'translate-x-full'}`}
+                                    onClick={e => e.stopPropagation()}
+                                >
+                                    <div className="flex items-center justify-between shrink-0">
+                                        <h2 className="font-black text-slate-800 uppercase tracking-tighter text-lg">Live Coaching</h2>
+                                        <button onClick={() => setShowMobileCoaching(false)} className="p-1 px-2 bg-slate-200 rounded-lg text-slate-500 font-bold text-xs uppercase">Close</button>
+                                    </div>
+                                    <div className="flex-1 overflow-y-auto space-y-8 pr-1 custom-scrollbar">
+                                        <aside className="w-full space-y-8">
+                                            <section>
+                                                <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Smart Replies</h3>
+                                                <div className="space-y-2">
+                                                    {coaching.smartReplies.map((reply, idx) => (
+                                                        <button key={idx} onClick={() => { setAgentInput(reply); setShowMobileCoaching(false); }} className="w-full text-left bg-white hover:bg-blue-50 p-3 rounded-xl border border-slate-200 text-[11px] text-slate-600 font-medium transition-all shadow-sm">{reply}</button>
+                                                    ))}
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Sentiment</h3>
+                                                <div className={`p-4 rounded-xl border flex items-center gap-3 ${coaching.sentiment === 'negative' ? 'bg-rose-50 border-rose-100 text-rose-600' : coaching.sentiment === 'positive' ? 'bg-green-50 border-green-100 text-green-600' : 'bg-white border-slate-200 text-slate-600'}`}>
+                                                    <span className="text-xl">{coaching.sentiment === 'positive' ? '😊' : coaching.sentiment === 'negative' ? '😤' : '😐'}</span>
+                                                    <span className="text-xs font-bold uppercase">{coaching.sentiment}</span>
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Metrics</h3>
+                                                <div className="space-y-4">
+                                                    <div>
+                                                        <div className="flex justify-between text-[10px] font-bold text-slate-400 mb-1"><span>Empathy</span><span>{coaching.empathyScore}%</span></div>
+                                                        <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden"><div className="h-full bg-green-500" style={{ width: `${coaching.empathyScore}%` }}></div></div>
+                                                    </div>
+                                                    <div>
+                                                        <div className="flex justify-between text-[10px] font-bold text-slate-400 mb-1"><span>Script</span><span>{coaching.scriptScore}%</span></div>
+                                                        <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden"><div className="h-full bg-blue-500" style={{ width: `${coaching.scriptScore}%` }}></div></div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </aside>
+                                    </div>
+                                </aside>
                             </div>
 
                             <aside className="w-[340px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-6 shrink-0 space-y-6 hidden xl:block">
