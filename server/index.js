@@ -101,7 +101,7 @@ app.use('/api/', limiter);
 const allowedOrigins = [
     'https://agent-success-utsa5eayma-uc.a.run.app',
     'http://localhost:3005',
-    'http://localhost:5005'
+    'http://localhost:5007'
 ];
 
 const io = new Server(httpServer, {
@@ -131,7 +131,7 @@ app.use((req, res, next) => {
     next();
 });
 
-const PORT = process.env.PORT || 5005;
+const PORT = process.env.PORT || 5007;
 const PROJECT_ID = process.env.GOOGLE_CLOUD_PROJECT_ID;
 
 // Gemini AI setup
