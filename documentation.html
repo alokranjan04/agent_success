@@ -375,7 +375,8 @@ npm install
 npm run dev
         </pre>
         <p>Ensure your <code>.env</code> file contains the <code>GEMINI_API_KEY</code> and
-            <code>GOOGLE_APPLICATION_CREDENTIALS</code>.</p>
+            <code>GOOGLE_APPLICATION_CREDENTIALS</code>.
+        </p>
 
         <h2>9. GCP Deployment</h2>
         <p>Deployment is handled via Container Registry and Cloud Run:</p>
@@ -392,9 +393,76 @@ gcloud run deploy agent-success --image gcr.io/[PROJECT_ID]/agent-success --min-
             <li><strong>Knowledge Base:</strong> Manage the documents used for Knowledge Assist.</li>
         </ul>
 
+        <h2>11. FAQ</h2>
+        <div class="faq-section">
+            <p><strong>Q: Does the customer need to install anything?</strong><br>
+                A: No. The customer opens a URL on any Chrome browser. No app download, no login required.</p>
+
+            <p><strong>Q: How does the customer's voice get to the agent?</strong><br>
+                A: The customer's browser transcribes their speech via Google's Web Speech API. The text is sent over
+                Socket.IO to the server, which broadcasts it to the agent's view in real time.</p>
+
+            <p><strong>Q: Can the agent hear the customer's actual voice?</strong><br>
+                A: Currently, the system works via transcription (text sent over the internet). For actual audio
+                bridging, integration with a telephony provider is a next step.</p>
+
+            <p><strong>Q: What if the customer's English isn't perfect?</strong><br>
+                A: Web Speech API supports 60+ languages. Gemini handles imperfect grammar and colloquial language
+                exceptionally well.</p>
+
+            <p><strong>Q: How fast does coaching update?</strong><br>
+                A: After each finalized speech result, Gemini is called with a 1.5s debounce. Total latency: ~3–4
+                seconds.</p>
+        </div>
+
+        <h2>12. Pitch Q&A — All Possible Questions</h2>
+
+        <h3>💼 Business Case & ROI</h3>
+        <ul>
+            <li><strong>Q: What exact problem does AgentOS solve?</strong><br>
+                A: It eliminates new agent ramp time, ensures 100% script compliance, and reduces Average Handle Time
+                (AHT) via smart suggestions.</li>
+            <li><strong>Q: What's the ROI for a 100-agent center?</strong><br>
+                A: Conservative efficiency gains alone save ~$163,000/year, not including improved CSAT and reduced
+                churn.</li>
+        </ul>
+
+        <h3>🧠 AI Coaching Quality</h3>
+        <ul>
+            <li><strong>Q: How does the AI know the call stage?</strong><br>
+                A: It reads the full context and follows the "Coaching Prompt" logic—prioritizing identity capture
+                before resolution naturally.</li>
+            <li><strong>Q: What if it gives wrong advice?</strong><br>
+                A: Suggestions are advisory and clearly labeled "Suggested." Agents remain in control at all times.</li>
+        </ul>
+
+        <h3>🔐 Security & Compliance</h3>
+        <ul>
+            <li><strong>Q: Where are transcripts stored?</strong><br>
+                A: Transcripts live in memory during the call. Summaries can be stored in Firestore with custom
+                retention (e.g., auto-delete after 30 days).</li>
+            <li><strong>Q: Is it GDPR compliant?</strong><br>
+                A: Yes. Built on Google's enterprise-grade secure infrastructure with robust PII protection
+                capabilities.</li>
+        </ul>
+
+        <h3>📈 Scalability & Costs</h3>
+        <ul>
+            <li><strong>Q: What are the cloud costs for 500 agents?</strong><br>
+                A: Including Cloud Run, Gemini API, and TTS, it costs approximately $400–$650/month for 500 active
+                agents.</li>
+        </ul>
+
+        <h3>🔌 Integration</h3>
+        <ul>
+            <li><strong>Q: Does it work with our CRM?</strong><br>
+                A: Yes. Summaries are structured and can be auto-pushed to Salesforce, Zendesk, or any CRM via webhooks.
+            </li>
+        </ul>
+
         <footer
             style="margin-top: 80px; text-align: center; color: var(--text-light); border-top: 1px solid var(--border); padding-top: 40px;">
-            <p>Document Version: 1.5 | February 2026 | AgentOS Platform</p>
+            <p>Document Version: 1.6 | February 2026 | AgentOS Platform</p>
         </footer>
     </div>
 </body>
