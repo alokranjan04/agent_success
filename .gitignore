@@ -19,6 +19,7 @@ dist-ssr
 !package.json
 !package-lock.json
 !tsconfig.json
+!tsconfig.node.json
 !firebase.json
 !service-account-example.json
 
