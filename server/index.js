@@ -151,17 +151,25 @@ const knowledgeService = new KnowledgeService(GEMINI_API_KEY);
 
 // TTS Client setup
 const credentialsPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+const ttsKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
 let ttsClient = null;
 
-if (credentialsPath && fs.existsSync(credentialsPath)) {
-    try {
+try {
+    if (ttsKey) {
+        const credentials = JSON.parse(ttsKey);
+        ttsClient = new textToSpeech.TextToSpeechClient({ credentials });
+        console.log('TTS Client initialized using GOOGLE_SERVICE_ACCOUNT_KEY (JSON).');
+    } else if (credentialsPath && fs.existsSync(credentialsPath)) {
         ttsClient = new textToSpeech.TextToSpeechClient();
-        console.log('TTS Client initialized with credentials.');
-    } catch (err) {
-        console.error('Failed to initialize TTS Client:', err.message);
+        console.log('TTS Client initialized using GOOGLE_APPLICATION_CREDENTIALS (file).');
+    } else {
+        // Fallback to ADC (Application Default Credentials) — works automatically on Cloud Run if permissions granted
+        ttsClient = new textToSpeech.TextToSpeechClient();
+        console.log('TTS Client initialized using Application Default Credentials (ADC).');
     }
-} else {
-    console.warn('WARNING: google-application-credentials not found. TTS will operate in mock mode.');
+} catch (err) {
+    console.error('Failed to initialize TTS Client:', err.message);
+    console.warn('TTS will operate in mock mode.');
 }
 
 // --- Chat state ---
@@ -395,8 +403,8 @@ app.post('/api/tts', async (req, res) => {
         }
 
         if (!ttsClient) {
-            console.log('Mocking TTS response (no credentials found)');
-            return res.json({ audioContent: null, message: 'Mock mode: Please provide service-account.json' });
+            console.warn('[TTS] Request received but ttsClient is null. Returning mock/error.');
+            return res.json({ audioContent: null, message: 'Mock mode: Please provide service-account.json or GOOGLE_SERVICE_ACCOUNT_KEY' });
         }
 
         const request = {

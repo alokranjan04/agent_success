@@ -196,3 +196,5 @@ Caused by:
 [2m6:33:49 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mAgentOS_Master_Documentation.html[22m
 [2m6:33:53 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdocumentation.html[22m
 [2m7:07:18 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceAgent.tsx, /src/index.css[22m
+[2m7:07:27 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/VoiceCustomer.tsx, /src/index.css[22m
+[2m7:07:30 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CustomerChat.tsx, /src/index.css[22m
