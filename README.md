@@ -161,13 +161,23 @@ npm run dev
 
 ---
 
-## 9. GCP Deployment
-
+### Manual Deployment
 Build the image and deploy to Cloud Run:
 ```bash
 gcloud builds submit --tag gcr.io/[PROJECT_ID]/agent-success
 gcloud run deploy agent-success --image gcr.io/[PROJECT_ID]/agent-success --min-instances 1
 ```
+
+### Automated Deployment (GitHub Actions)
+The repository is configured with a GitHub Actions workflow in `.github/workflows/deploy.yml`. To enable automated deployment on every `push` to `main`:
+
+1.  **GCP Service Account:** Create a Service Account with `Cloud Run Admin` and `Storage Admin` roles.
+2.  **GitHub Secrets:** Add the following secrets to your GitHub repository:
+    - `GCP_PROJECT_ID`: Your GCP Project ID (e.g., `ai-voice-agent-c2a2b`).
+    - `GCP_SA_KEY`: The entire content of your Service Account JSON key.
+    - `GCP_SERVICE_NAME`: The name of your Cloud Run service (e.g., `agent-success`).
+    - `GCP_REGION`: The region (e.g., `us-central1`).
+3.  **Trigger:** Any change pushed to the `main` branch will automatically trigger a build and a new revision deployment to Cloud Run.
 
 ---
 
