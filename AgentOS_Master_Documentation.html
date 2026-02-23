@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentOS Master Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --secondary: #10B981;
+            --text-main: #1F2937;
+            --text-light: #6B7280;
+            --bg-page: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --border: #E5E7EB;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-top: 50px;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 30px;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        table thead tr {
+            background-color: var(--primary);
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table th,
+        table td {
+            padding: 15px 20px;
+        }
+
+        table tbody tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid var(--primary);
+        }
+
+        code {
+            background-color: #F3F4F6;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            word-break: break-all;
+        }
+
+        pre {
+            background: #1F2937;
+            color: #F9FAFB;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .quick-links {
+            background: #EEF2FF;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 30px 0;
+            border: 1px solid #C7D2FE;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 30px 20px;
+                border-radius: 0;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .flex-stack {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+
+            .arch-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>AgentOS Master Documentation</h1>
+            <div class="subtitle">The Unified AI Co-Pilot for Inbound Contact Centers</div>
+            <div style="margin-top: 20px;" class="no-print">
+                <button onclick="window.print()"
+                    style="background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                    🖨️ Export to PDF
+                </button>
+            </div>
+        </header>
+
+        <div class="quick-links">
+            <h2>🌐 Quick Access Links</h2>
+            <h3>🚀 Production (Live)</h3>
+            <ul>
+                <li><strong>Main Dashboard:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app">agent-success-utsa5eayma-uc.a.run.app</a>
+                </li>
+                <li><strong>Voice Agent Interface:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app/voice">agent-success-utsa5eayma-uc.a.run.app/voice</a>
+                </li>
+                <li><strong>Admin Configuration:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app/admin">agent-success-utsa5eayma-uc.a.run.app/admin</a>
+                </li>
+                <li><strong>Customer Chat Widget:</strong> <a
+                        href="https://agent-success-utsa5eayma-uc.a.run.app/customer">agent-success-utsa5eayma-uc.a.run.app/customer</a>
+                </li>
+            </ul>
+
+            <h3>💻 Local Development</h3>
+            <ul>
+                <li><strong>Main Dashboard:</strong> <code>http://localhost:3005</code></li>
+                <li><strong>Voice Agent:</strong> <code>http://localhost:3005/voice</code></li>
+                <li><strong>Admin Panel:</strong> <code>http://localhost:3005/admin</code></li>
+                <li><strong>Customer Chat:</strong> <code>http://localhost:3005/customer</code></li>
+            </ul>
+        </div>
+
+        <h2>1. Product Overview</h2>
+        <p><strong>AgentOS</strong> is a real-time AI coaching platform for inbound call center agents. It acts as a
+            silent AI co-pilot that reads conversation transcripts in real time and provides instructions, empathy
+            alerts, and smart replies to ensure every customer interaction is professional and compliant.</p>
+        <ul>
+            <li><strong>Agent Skill Gaps:</strong> Turns new hires into experts on day one.</li>
+            <li><strong>Script Compliance:</strong> Ensures identity verification and empathy are never skipped.</li>
+            <li><strong>Reduced AHT:</strong> Smart suggestions reduce thinking time and silence durations.</li>
+        </ul>
+
+        <h2>2. Pricing & ROI</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tier</th>
+                    <th>Price</th>
+                    <th>Key Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Free</strong></td>
+                    <td>$0/mo</td>
+                    <td>2 Agents, 100 calls/mo, Basic coaching</td>
+                </tr>
+                <tr>
+                    <td><strong>Pro</strong></td>
+                    <td>$45/agent/mo</td>
+                    <td>Unlimited calls, Custom prompts, 7-day retention</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise</strong></td>
+                    <td>Custom</td>
+                    <td>Dedicated instance, CRM Integration, PII Masking</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Business ROI</h3>
+        <ul>
+            <li><strong>20% AHT Reduction:</strong> Saves ~$150k+ annually for a 100-agent center.</li>
+            <li><strong>QA Automation:</strong> Replaces up to 80% of manual call monitoring with AI summaries.</li>
+            <li><strong>Ramp Time:</strong> Reduces agent onboarding time by ~40%.</li>
+        </ul>
+
+        <h2>3. Inbound Call Journey & AI Coaching</h2>
+        <p>AgentOS guides agents through 5 critical stages of an inbound call:</p>
+        <ol>
+            <li><strong>GREETING & VERIFICATION:</strong> Welcome warmly and confirm identity.</li>
+            <li><strong>ISSUE CAPTURE:</strong> Listen carefully and repeat back the issue.</li>
+            <li><strong>EMPATHY:</strong> Acknowledge and validate customer frustration.</li>
+            <li><strong>RESOLUTION:</strong> Offer a clear fix with concrete timelines.</li>
+            <li><strong>CLOSURE:</strong> Confirm satisfaction and invite final questions.</li>
+        </ol>
+
+        <h2>4. Feature List</h2>
+        <ul>
+            <li><strong>Real-time Transcription:</strong> Instant voice-to-text for all participants.</li>
+            <li><strong>AI Coaching Tags:</strong> Visual labels for critical moments (e.g., "Empathy Gap").</li>
+            <li><strong>Escalation Risk:</strong> Dynamic meter predicting potential supervisor requests.</li>
+            <li><strong>Smart Replies:</strong> Professionally crafted phrases to say or play (TTS).</li>
+            <li><strong>Post-Call Summary:</strong> Full QA reports generated in seconds.</li>
+        </ul>
+
+        <h2>5. Knowledge Assist (RAG) <span class="badge">New</span></h2>
+        <p>The Knowledge Assist feature leverages Retrieval Augmented Generation to provide instant answers:</p>
+        <ul>
+            <li><strong>Modular Sidebar:</strong> A dedicated space for knowledge results.</li>
+            <li><strong>Manual Search:</strong> Ad-hoc queries against your uploaded policies.</li>
+            <li><strong>Document Indexing:</strong> Seamless PDF uploads via the Admin Panel.</li>
+            <li><strong>Knowledge Snippets:</strong> Relevant chunks of text surfaced automatically based on the call
+                context.</li>
+        </ul>
+
+        <h2>6. System Architecture</h2>
+        <p>AgentOS is built on a globally scalable, real-time architecture, leveraging the best-in-class Google Cloud
+            managed services.</p>
+
+        <div
+            style="background: #0F172A; color: #10B981; padding: 40px; border-radius: 20px; margin: 30px 0; font-family: 'Courier New', monospace; font-size: 0.9em; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 1px solid #1E293B;">
+            <div
+                style="text-align: center; font-weight: bold; margin-bottom: 25px; color: #94A3B8; letter-spacing: 2px;">
+                ┌ ARCHITECTURE OVERVIEW ┐</div>
+
+            <!-- Public Internet Box -->
+            <div
+                style="border: 2px solid #334155; padding: 20px; border-radius: 12px; margin-bottom: 20px; background: rgba(30, 41, 59, 0.5);">
+                <div
+                    style="color: #94A3B8; font-size: 11px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase;">
+                    Public Internet</div>
+                <div class="flex-stack" style="display: flex; justify-content: center; gap: 30px;">
+                    <div
+                        style="border: 1px solid #475569; padding: 10px 20px; border-radius: 6px; background: #1E293B; color: #F8FAFC;">
+                        Agent Browser</div>
+                    <div
+                        style="border: 1px solid #475569; padding: 10px 20px; border-radius: 6px; background: #1E293B; color: #F8FAFC;">
+                        Customer Browser</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; font-size: 24px; margin: -10px 0; color: #6366F1;">⇅</div>
+
+            <!-- Cloud Run Container Box -->
+            <div
+                style="border: 2px solid #6366F1; padding: 25px; border-radius: 16px; margin-bottom: 20px; background: rgba(99, 102, 241, 0.05);">
+                <div
+                    style="color: #6366F1; font-size: 11px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                    Google Cloud Run (Compute Instance)</div>
+                <div class="flex-stack" style="display: flex; justify-content: center; gap: 20px;">
+                    <div
+                        style="border: 1px solid #6366F1; padding: 15px; border-radius: 8px; background: #1E293B; flex: 1; text-align: center; color: #818CF8;">
+                        <div style="font-weight: bold; margin-bottom: 5px;">Express.js</div>
+                        <div style="font-size: 10px; opacity: 0.7;">API & Logic</div>
+                    </div>
+                    <div
+                        style="border: 1px solid #6366F1; padding: 15px; border-radius: 8px; background: #1E293B; flex: 1; text-align: center; color: #818CF8;">
+                        <div style="font-weight: bold; margin-bottom: 5px;">Socket.IO</div>
+                        <div style="font-size: 10px; opacity: 0.7;">Real-time Sync</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; font-size: 24px; margin: -10px 0; color: #059669;">⇅</div>
+
+            <!-- Managed Services Box -->
+            <div
+                style="border: 2px solid #059669; padding: 20px; border-radius: 12px; background: rgba(5, 150, 105, 0.05);">
+                <div
+                    style="color: #059669; font-size: 11px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase;">
+                    Google Cloud Managed Services</div>
+                <div class="arch-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div
+                        style="background: #064E3B; border: 1px solid #059669; padding: 10px; border-radius: 6px; text-align: center; color: #6EE7B7;">
+                        Gemini 1.5 Flash (AI)</div>
+                    <div
+                        style="background: #064E3B; border: 1px solid #059669; padding: 10px; border-radius: 6px; text-align: center; color: #6EE7B7;">
+                        Firebase Firestore</div>
+                    <div
+                        style="background: #064E3B; border: 1px solid #059669; padding: 10px; border-radius: 6px; text-align: center; color: #6EE7B7;">
+                        Google Cloud TTS</div>
+                    <div
+                        style="background: #064E3B; border: 1px solid #059669; padding: 10px; border-radius: 6px; text-align: center; color: #6EE7B7;">
+                        Secret Manager</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Infrastructure Highlights</h3>
+        <ul>
+            <li><strong>Autoscaling:</strong> Cloud Run instances scale-up instantly to meet call demand.</li>
+            <li><strong>Consistency:</strong> Persistent Socket.IO connections via stickiness and min-instances.</li>
+            <li><strong>Security:</strong> All secrets (API keys, Firestore SA) are managed via Google Secret Manager.
+            </li>
+        </ul>
+
+        <h2>7. Tech Stack</h2>
+        <ul>
+            <li><strong>Frontend:</strong> React 18, Vite, TypeScript, Tailwind CSS.</li>
+            <li><strong>Backend:</strong> Node.js, Express, Socket.IO v4.</li>
+            <li><strong>AI Core:</strong> Gemini 1.5 Flash.</li>
+            <li><strong>Voice:</strong> Web Speech API, Google Cloud Text-to-Speech.</li>
+        </ul>
+
+        <h2>8. Local Setup</h2>
+        <pre>
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+        </pre>
+        <p>Ensure your <code>.env</code> file contains the <code>GEMINI_API_KEY</code> and
+            <code>GOOGLE_APPLICATION_CREDENTIALS</code>.
+        </p>
+
+        <h2>9. GCP Deployment</h2>
+        <p>Deployment is handled via Container Registry and Cloud Run:</p>
+        <pre>
+gcloud builds submit --tag gcr.io/[PROJECT_ID]/agent-success
+gcloud run deploy agent-success --image gcr.io/[PROJECT_ID]/agent-success --min-instances 1
+        </pre>
+
+        <h2>10. Admin Configuration Guide</h2>
+        <p>Customize your AI co-pilot without code:</p>
+        <ul>
+            <li><strong>System Prompt:</strong> Define the persona and rules.</li>
+            <li><strong>Coaching Prompt:</strong> Define QA stages and escalation triggers.</li>
+            <li><strong>Knowledge Base:</strong> Manage the documents used for Knowledge Assist.</li>
+        </ul>
+
+        <h2>11. FAQ</h2>
+        <div class="faq-section">
+            <p><strong>Q: Does the customer need to install anything?</strong><br>
+                A: No. The customer opens a URL on any Chrome browser. No app download, no login required.</p>
+
+            <p><strong>Q: How does the customer's voice get to the agent?</strong><br>
+                A: The customer's browser transcribes their speech via Google's Web Speech API. The text is sent over
+                Socket.IO to the server, which broadcasts it to the agent's view in real time.</p>
+
+            <p><strong>Q: Can the agent hear the customer's actual voice?</strong><br>
+                A: Currently, the system works via transcription (text sent over the internet). For actual audio
+                bridging, integration with a telephony provider is a next step.</p>
+
+            <p><strong>Q: What if the customer's English isn't perfect?</strong><br>
+                A: Web Speech API supports 60+ languages. Gemini handles imperfect grammar and colloquial language
+                exceptionally well.</p>
+
+            <p><strong>Q: How fast does coaching update?</strong><br>
+                A: After each finalized speech result, Gemini is called with a 1.5s debounce. Total latency: ~3–4
+                seconds.</p>
+        </div>
+
+        <h2>12. Pitch Q&A — All Possible Questions</h2>
+
+        <h3>💼 Business Case & ROI</h3>
+        <ul>
+            <li><strong>Q: What exact problem does AgentOS solve?</strong><br>
+                A: It eliminates new agent ramp time, ensures 100% script compliance, and reduces Average Handle Time
+                (AHT) via smart suggestions.</li>
+            <li><strong>Q: What's the ROI for a 100-agent center?</strong><br>
+                A: Conservative efficiency gains alone save ~$163,000/year, not including improved CSAT and reduced
+                churn.</li>
+        </ul>
+
+        <h3>🧠 AI Coaching Quality</h3>
+        <ul>
+            <li><strong>Q: How does the AI know the call stage?</strong><br>
+                A: It reads the full context and follows the "Coaching Prompt" logic—prioritizing identity capture
+                before resolution naturally.</li>
+            <li><strong>Q: What if it gives wrong advice?</strong><br>
+                A: Suggestions are advisory and clearly labeled "Suggested." Agents remain in control at all times.</li>
+        </ul>
+
+        <h3>🔐 Security & Compliance</h3>
+        <ul>
+            <li><strong>Q: Where are transcripts stored?</strong><br>
+                A: Transcripts live in memory during the call. Summaries can be stored in Firestore with custom
+                retention (e.g., auto-delete after 30 days).</li>
+            <li><strong>Q: Is it GDPR compliant?</strong><br>
+                A: Yes. Built on Google's enterprise-grade secure infrastructure with robust PII protection
+                capabilities.</li>
+        </ul>
+
+        <h3>📈 Scalability & Costs</h3>
+        <ul>
+            <li><strong>Q: What are the cloud costs for 500 agents?</strong><br>
+                A: Including Cloud Run, Gemini API, and TTS, it costs approximately $400–$650/month for 500 active
+                agents.</li>
+        </ul>
+
+        <h3>🔌 Integration</h3>
+        <ul>
+            <li><strong>Q: Does it work with our CRM?</strong><br>
+                A: Yes. Summaries are structured and can be auto-pushed to Salesforce, Zendesk, or any CRM via webhooks.
+            </li>
+        </ul>
+
+        <footer
+            style="margin-top: 80px; text-align: center; color: var(--text-light); border-top: 1px solid var(--border); padding-top: 40px;">
+            <p>Document Version: 1.6 | February 2026 | AgentOS Platform</p>
+        </footer>
+    </div>
+</body>
+
+</html>
