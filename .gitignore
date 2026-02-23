@@ -36,5 +36,7 @@ Thumbs.db
 
 # App specific
 uploads/
-logs/
+*.log
+*-log.txt
+test-output.txt
 temp/
