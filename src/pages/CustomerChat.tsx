@@ -54,7 +54,7 @@ const CustomerChat: React.FC = () => {
         });
 
         // Fetch admin config for company name
-        fetch('${API_URL}/api/admin/config')
+        fetch(`${API_URL}/api/admin/config`)
             .then(r => r.json())
             .then(c => { if (c.companyName) setCompanyName(c.companyName) })
             .catch(() => { })

@@ -126,7 +126,7 @@ const VoiceAgent: React.FC = () => {
 
         coachingDebounceRef.current = setTimeout(async () => {
             try {
-                const res = await fetch('${API_URL}/api/coaching', {
+                const res = await fetch(`${API_URL}/api/coaching`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -235,7 +235,7 @@ const VoiceAgent: React.FC = () => {
     const speakReply = async (text: string) => {
         setTtsPlaying(text)
         try {
-            const res = await fetch('${API_URL}/api/tts', {
+            const res = await fetch(`${API_URL}/api/tts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text })
@@ -270,7 +270,7 @@ const VoiceAgent: React.FC = () => {
             const transcriptText = transcript
                 .map(e => `${e.speaker.toUpperCase()} [${e.time}]: ${e.text}`)
                 .join('\n')
-            const res = await fetch('${API_URL}/api/voice/summary', {
+            const res = await fetch(`${API_URL}/api/voice/summary`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ transcript: transcriptText })
