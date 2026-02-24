@@ -404,7 +404,7 @@ io.on('connection', (socket) => {
 // --- REST Endpoints ---
 app.post('/api/tts', async (req, res) => {
     try {
-        const { text } = req.body;
+        const { text, speaker = 'agent' } = req.body;
         if (!text) {
             return res.status(400).json({ error: 'Text is required' });
         }
@@ -414,10 +414,16 @@ app.post('/api/tts', async (req, res) => {
             return res.json({ audioContent: null, message: 'Mock mode: Please provide service-account.json or GOOGLE_SERVICE_ACCOUNT_KEY' });
         }
 
+        const voiceName = speaker === 'customer' ? 'en-US-Journey-F' : 'en-US-Journey-D';
+
         const request = {
             input: { text: text },
-            voice: { languageCode: 'en-US', ssmlGender: 'NEUTRAL' },
-            audioConfig: { audioEncoding: 'MP3' },
+            voice: { languageCode: 'en-US', name: voiceName },
+            audioConfig: {
+                audioEncoding: 'MP3',
+                sampleRateHertz: 8000,
+                effectsProfileId: ['telephony-class-application']
+            },
         };
 
         const [response] = await ttsClient.synthesizeSpeech(request);

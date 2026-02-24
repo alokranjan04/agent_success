@@ -95,12 +95,21 @@ const VoiceAgent: React.FC = () => {
             if (entry.speaker === 'customer') {
                 setTranscript(prev => [...prev, entry as any])
 
-                // Read the customer's text out loud using native SpeechSynthesis
-                if (entry.text && window.speechSynthesis) {
-                    const utterance = new SpeechSynthesisUtterance(entry.text)
-                    utterance.rate = 1.05
-                    utterance.pitch = 1.2 // Distinct pitch to differentiate from agent TTS
-                    window.speechSynthesis.speak(utterance)
+                // Play the customer's text out loud using the backend TTS with telephony voice
+                if (entry.text) {
+                    fetch(`${API_URL}/api/tts`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ text: entry.text, speaker: 'customer' })
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.audioContent) {
+                                const audio = new Audio(`data:audio/mp3;base64,${data.audioContent}`)
+                                audio.play().catch(e => console.error("Agent Player Error:", e))
+                            }
+                        })
+                        .catch(err => console.error("TTS fetch error:", err))
                 }
             }
         }
