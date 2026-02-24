@@ -90,14 +90,36 @@ const VoiceAgent: React.FC = () => {
 
     // ──── Customer → Agent: receive entries the customer speaks ────
     useEffect(() => {
-        socket.on('voice_new_entry', ({ entry }: { entry: { id: string; speaker: string; text: string; time: string } }) => {
+        const handleNewEntry = ({ entry }: { entry: { id: string; speaker: string; text: string; time: string } }) => {
             // Only add if it's from the customer (agent's own entries are already added locally)
             if (entry.speaker === 'customer') {
                 setTranscript(prev => [...prev, entry as any])
+
+                // Read the customer's text out loud using native SpeechSynthesis
+                if (entry.text && window.speechSynthesis) {
+                    const utterance = new SpeechSynthesisUtterance(entry.text)
+                    utterance.rate = 1.05
+                    utterance.pitch = 1.2 // Distinct pitch to differentiate from agent TTS
+                    window.speechSynthesis.speak(utterance)
+                }
             }
-        })
-        return () => { socket.off('voice_new_entry') }
+        }
+
+        socket.on('voice_new_entry', handleNewEntry)
+        return () => { socket.off('voice_new_entry', handleNewEntry) }
     }, [])
+
+    // ──── Rejoin room if socket reconnects ────
+    useEffect(() => {
+        const reJoin = () => {
+            if (callActive) {
+                // Use voice_join to safely rejoin the room without wiping server history
+                socket.emit('voice_join', { sessionId })
+            }
+        }
+        socket.on('connect', reJoin)
+        return () => { socket.off('connect', reJoin) }
+    }, [callActive, sessionId])
 
     // ──── Auto-scroll ────
     useEffect(() => {

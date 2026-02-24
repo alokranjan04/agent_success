@@ -954,3 +954,46 @@ Emitted 'error' event on Server instance at:
 
 Node.js v24.13.1
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+TTS Client initialized using Application Default Credentials (ADC).
+Server running on port 5007
+(node:17716) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[Firebase] Could not load config: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server/index.js`[39m
+Firebase Admin SDK initialized.
+Gemini AI initialized.
+[Knowledge] Initializing with key: AIzaSy...
+TTS Client initialized using Application Default Credentials (ADC).
+(node:60876) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5007
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at file:///C:/Users/Alok%20Ranjan/Documents/Agent%20Success/server/index.js:706:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5007
+}
+
+Node.js v24.13.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

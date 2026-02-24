@@ -61,9 +61,16 @@ const VoiceCustomer: React.FC = () => {
 
     // Socket events — join session room if URL has ?session=
     useEffect(() => {
-        if (urlSession) {
-            // Join existing session started by agent; server sends voice_history
-            socket.emit('voice_join', { sessionId: urlSession })
+        const joinRoom = () => {
+            if (urlSession) {
+                // Join existing session started by agent; server sends voice_history
+                socket.emit('voice_join', { sessionId: urlSession })
+            }
+        }
+
+        socket.on('connect', joinRoom)
+        if (socket.connected) {
+            joinRoom()
         }
 
         socket.on('voice_history', (entries: TranscriptEntry[]) => {
@@ -73,6 +80,23 @@ const VoiceCustomer: React.FC = () => {
         // Receive agent's transcript entries in real time
         socket.on('voice_new_entry', ({ entry }: { entry: TranscriptEntry }) => {
             setTranscript(prev => [...prev, entry])
+
+            // Play TTS for Agent's voice so the Customer can hear it
+            if (entry.speaker === 'agent' && entry.text) {
+                fetch(`${API_URL}/api/tts`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: entry.text })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.audioContent) {
+                            const audio = new Audio(`data:audio/mp3;base64,${data.audioContent}`)
+                            audio.play().catch(e => console.error("Audio playback error:", e))
+                        }
+                    })
+                    .catch(err => console.error("TTS fetch error:", err))
+            }
         })
 
         // Agent ended the call
@@ -82,6 +106,7 @@ const VoiceCustomer: React.FC = () => {
         })
 
         return () => {
+            socket.off('connect', joinRoom)
             socket.off('voice_history')
             socket.off('voice_new_entry')
             socket.off('voice_session_ended')
