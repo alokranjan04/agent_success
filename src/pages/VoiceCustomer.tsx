@@ -41,6 +41,11 @@ const VoiceCustomer: React.FC = () => {
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
     const transcriptEndRef = useRef<HTMLDivElement>(null)
 
+    // WebRTC references
+    const localStreamRef = useRef<MediaStream | null>(null)
+    const peerConnectionRef = useRef<RTCPeerConnection | null>(null)
+    const remoteAudioRef = useRef<HTMLAudioElement | null>(null)
+
     // Auto-scroll
     useEffect(() => {
         transcriptEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -80,23 +85,7 @@ const VoiceCustomer: React.FC = () => {
         // Receive agent's transcript entries in real time
         socket.on('voice_new_entry', ({ entry }: { entry: TranscriptEntry }) => {
             setTranscript(prev => [...prev, entry])
-
-            // Play TTS for Agent's voice so the Customer can hear it
-            if (entry.speaker === 'agent' && entry.text) {
-                fetch(`${API_URL}/api/tts`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ text: entry.text })
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.audioContent) {
-                            const audio = new Audio(`data:audio/mp3;base64,${data.audioContent}`)
-                            audio.play().catch(e => console.error("Audio playback error:", e))
-                        }
-                    })
-                    .catch(err => console.error("TTS fetch error:", err))
-            }
+            // Note: We no longer play TTS here. The real audio is coming through WebRTC!
         })
 
         // Agent ended the call
@@ -105,18 +94,77 @@ const VoiceCustomer: React.FC = () => {
             setCallEnded(true)
         })
 
+        // WebRTC Signaling handlers
+        socket.on('voice_webrtc_offer', async ({ offer }) => {
+            if (!peerConnectionRef.current) return
+            try {
+                await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(offer))
+                const answer = await peerConnectionRef.current.createAnswer()
+                await peerConnectionRef.current.setLocalDescription(answer)
+                socket.emit('voice_webrtc_answer', { sessionId: urlSession || sessionId, answer })
+            } catch (err) {
+                console.error("Error handling offer:", err)
+            }
+        })
+
+        socket.on('voice_webrtc_ice_candidate', async ({ candidate }) => {
+            if (peerConnectionRef.current && candidate) {
+                try {
+                    await peerConnectionRef.current.addIceCandidate(new RTCIceCandidate(candidate))
+                } catch (e) {
+                    console.error("Error adding ice candidate:", e)
+                }
+            }
+        })
+
         return () => {
             socket.off('connect', joinRoom)
             socket.off('voice_history')
             socket.off('voice_new_entry')
             socket.off('voice_session_ended')
+            socket.off('voice_webrtc_offer')
+            socket.off('voice_webrtc_ice_candidate')
         }
-    }, [urlSession])
+    }, [urlSession, sessionId])
+
+    // Initialize WebRTC Peer Connection
+    const initWebRTC = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+            localStreamRef.current = stream
+
+            const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
+            const pc = new RTCPeerConnection(configuration)
+            peerConnectionRef.current = pc
+
+            // Add local tracks
+            stream.getTracks().forEach(track => pc.addTrack(track, stream))
+
+            // Handle ICE candidates
+            pc.onicecandidate = event => {
+                if (event.candidate) {
+                    socket.emit('voice_webrtc_ice_candidate', { sessionId, candidate: event.candidate })
+                }
+            }
+
+            // Handle incoming remote audio stream
+            pc.ontrack = event => {
+                if (remoteAudioRef.current && event.streams[0]) {
+                    remoteAudioRef.current.srcObject = event.streams[0]
+                }
+            }
+        } catch (err) {
+            console.error("Failed to get local audio:", err)
+            alert("Microphone access is required for real voice transfer.")
+        }
+    }
 
     // Start call
-    const startCall = useCallback(() => {
+    const startCall = useCallback(async () => {
         const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition
         if (!SpeechRec) return
+
+        await initWebRTC()
 
         setCallActive(true)
         setCallEnded(false)
@@ -177,16 +225,39 @@ const VoiceCustomer: React.FC = () => {
             recognitionRef.current.stop()
             recognitionRef.current = null
         }
+
+        // Cleanup WebRTC
+        if (localStreamRef.current) {
+            localStreamRef.current.getTracks().forEach(track => track.stop())
+            localStreamRef.current = null
+        }
+        if (peerConnectionRef.current) {
+            peerConnectionRef.current.close()
+            peerConnectionRef.current = null
+        }
+        if (remoteAudioRef.current) {
+            remoteAudioRef.current.srcObject = null
+        }
+
         setInterimText('')
     }, [])
 
     const toggleMute = () => {
         setIsMuted(m => {
-            if (!m && recognitionRef.current) recognitionRef.current.stop()
-            else if (m && recognitionRef.current) {
+            const nextMuted = !m
+            // Stop/Start STT Recognition
+            if (nextMuted && recognitionRef.current) recognitionRef.current.stop()
+            else if (!nextMuted && recognitionRef.current) {
                 try { recognitionRef.current.start() } catch (_) { }
             }
-            return !m
+
+            // Mute actual WebRTC audio track
+            if (localStreamRef.current) {
+                localStreamRef.current.getAudioTracks().forEach(track => {
+                    track.enabled = !nextMuted
+                })
+            }
+            return nextMuted
         })
     }
 
@@ -195,6 +266,9 @@ const VoiceCustomer: React.FC = () => {
 
     return (
         <div className="h-screen h-[100dvh] bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 flex flex-col items-center justify-center p-4 overflow-hidden">
+            {/* Hidden audio element to play the remote agent's voice via WebRTC */}
+            <audio ref={remoteAudioRef} autoPlay />
+
             <div className="w-full max-w-md flex flex-col h-full max-h-[850px]">
 
                 {/* ─── Header ─── */}

@@ -399,6 +399,19 @@ io.on('connection', (socket) => {
         delete voiceSessions[sessionId];
         console.log(`[Voice] Session ended: ${sessionId}`);
     });
+
+    // ── WebRTC Signaling ──────────────────────────────────────────
+    socket.on('voice_webrtc_offer', ({ sessionId, offer }) => {
+        socket.to(`voice-${sessionId}`).emit('voice_webrtc_offer', { sessionId, offer });
+    });
+
+    socket.on('voice_webrtc_answer', ({ sessionId, answer }) => {
+        socket.to(`voice-${sessionId}`).emit('voice_webrtc_answer', { sessionId, answer });
+    });
+
+    socket.on('voice_webrtc_ice_candidate', ({ sessionId, candidate }) => {
+        socket.to(`voice-${sessionId}`).emit('voice_webrtc_ice_candidate', { sessionId, candidate });
+    });
 });
 
 // --- REST Endpoints ---
