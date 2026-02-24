@@ -101,21 +101,28 @@ app.use('/api/', limiter);
 const allowedOrigins = [
     'https://aseployment-536573436709.asia-south1.run.app',
     'https://agent-success-utsa5eayma-uc.a.run.app',
+    'https://agent-success-app-utsa5eayma-el.a.run.app',
     'http://localhost:3005',
     'http://localhost:5007'
 ];
 
 const io = new Server(httpServer, {
     cors: {
-        origin: allowedOrigins,
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.run.app')) {
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowed by CORS'));
+            }
+        },
         methods: ['GET', 'POST'],
         credentials: true
     }
 });
 
-app.use(cors({
+app.use('/api', cors({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.run.app')) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
