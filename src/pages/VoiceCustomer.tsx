@@ -96,18 +96,31 @@ const VoiceCustomer: React.FC = () => {
 
         // WebRTC Signaling handlers
         socket.on('voice_webrtc_offer', async ({ offer }) => {
+            console.log("[WebRTC Customer] Received Offer")
             if (!peerConnectionRef.current) return
             try {
                 await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(offer))
                 const answer = await peerConnectionRef.current.createAnswer()
                 await peerConnectionRef.current.setLocalDescription(answer)
+                console.log("[WebRTC Customer] Sending Answer")
                 socket.emit('voice_webrtc_answer', { sessionId: urlSession || sessionId, answer })
             } catch (err) {
                 console.error("Error handling offer:", err)
             }
         })
 
+        socket.on('voice_webrtc_answer', async ({ answer }) => {
+            console.log("[WebRTC Customer] Received Answer")
+            if (!peerConnectionRef.current) return
+            try {
+                await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(answer))
+            } catch (err) {
+                console.error("Error setting WebRTC answer:", err)
+            }
+        })
+
         socket.on('voice_webrtc_ice_candidate', async ({ candidate }) => {
+            console.log("[WebRTC Customer] Received ICE Candidate")
             if (peerConnectionRef.current && candidate) {
                 try {
                     await peerConnectionRef.current.addIceCandidate(new RTCIceCandidate(candidate))
@@ -133,22 +146,36 @@ const VoiceCustomer: React.FC = () => {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
             localStreamRef.current = stream
 
-            const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
+            const configuration = {
+                iceServers: [
+                    { urls: 'stun:stun.l.google.com:19302' },
+                    { urls: 'stun:stun1.l.google.com:19302' },
+                    { urls: 'stun:stun2.l.google.com:19302' },
+                    { urls: 'stun:stun3.l.google.com:19302' },
+                    { urls: 'stun:stun4.l.google.com:19302' }
+                ]
+            }
             const pc = new RTCPeerConnection(configuration)
             peerConnectionRef.current = pc
 
             // Add local tracks
             stream.getTracks().forEach(track => pc.addTrack(track, stream))
 
+            // State changes
+            pc.oniceconnectionstatechange = () => console.log("[WebRTC Customer] ICE State:", pc.iceConnectionState)
+            pc.onconnectionstatechange = () => console.log("[WebRTC Customer] Connection State:", pc.connectionState)
+
             // Handle ICE candidates
             pc.onicecandidate = event => {
                 if (event.candidate) {
+                    console.log("[WebRTC Customer] Gathered local ICE candidate")
                     socket.emit('voice_webrtc_ice_candidate', { sessionId, candidate: event.candidate })
                 }
             }
 
             // Handle incoming remote audio stream
             pc.ontrack = event => {
+                console.log("[WebRTC Customer] Received remote track")
                 if (remoteAudioRef.current && event.streams[0]) {
                     remoteAudioRef.current.srcObject = event.streams[0]
                     // Force play in case of browser autoplay policies
@@ -178,8 +205,10 @@ const VoiceCustomer: React.FC = () => {
         // ── WEBRTC: Customer creates the Offer to send to the Agent ──
         if (peerConnectionRef.current) {
             try {
+                console.log("[WebRTC Customer] Creating Offer")
                 const offer = await peerConnectionRef.current.createOffer()
                 await peerConnectionRef.current.setLocalDescription(offer)
+                console.log("[WebRTC Customer] Sending Offer via Socket")
                 socket.emit('voice_webrtc_offer', { sessionId: urlSession || sessionId, offer })
             } catch (err) {
                 console.error("Error creating WebRTC offer on Customer side:", err)

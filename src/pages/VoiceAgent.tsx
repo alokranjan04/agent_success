@@ -107,11 +107,13 @@ const VoiceAgent: React.FC = () => {
 
         // WebRTC Signaling handlers
         socket.on('voice_webrtc_offer', async ({ offer }) => {
+            console.log("[WebRTC Agent] Received Offer")
             if (!peerConnectionRef.current) return
             try {
                 await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(offer))
                 const answer = await peerConnectionRef.current.createAnswer()
                 await peerConnectionRef.current.setLocalDescription(answer)
+                console.log("[WebRTC Agent] Sending Answer")
                 socket.emit('voice_webrtc_answer', { sessionId, answer })
             } catch (err) {
                 console.error("Error handling WebRTC offer:", err)
@@ -119,6 +121,7 @@ const VoiceAgent: React.FC = () => {
         })
 
         socket.on('voice_webrtc_answer', async ({ answer }) => {
+            console.log("[WebRTC Agent] Received Answer")
             if (!peerConnectionRef.current) return
             try {
                 await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(answer))
@@ -128,6 +131,7 @@ const VoiceAgent: React.FC = () => {
         })
 
         socket.on('voice_webrtc_ice_candidate', async ({ candidate }) => {
+            console.log("[WebRTC Agent] Received ICE Candidate")
             if (peerConnectionRef.current && candidate) {
                 try {
                     await peerConnectionRef.current.addIceCandidate(new RTCIceCandidate(candidate))
@@ -212,22 +216,36 @@ const VoiceAgent: React.FC = () => {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
             localStreamRef.current = stream
 
-            const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
+            const configuration = {
+                iceServers: [
+                    { urls: 'stun:stun.l.google.com:19302' },
+                    { urls: 'stun:stun1.l.google.com:19302' },
+                    { urls: 'stun:stun2.l.google.com:19302' },
+                    { urls: 'stun:stun3.l.google.com:19302' },
+                    { urls: 'stun:stun4.l.google.com:19302' }
+                ]
+            }
             const pc = new RTCPeerConnection(configuration)
             peerConnectionRef.current = pc
 
             // Add local tracks
             stream.getTracks().forEach(track => pc.addTrack(track, stream))
 
+            // State changes
+            pc.oniceconnectionstatechange = () => console.log("[WebRTC Agent] ICE State:", pc.iceConnectionState)
+            pc.onconnectionstatechange = () => console.log("[WebRTC Agent] Connection State:", pc.connectionState)
+
             // Handle ICE candidates
             pc.onicecandidate = event => {
                 if (event.candidate) {
+                    console.log("[WebRTC Agent] Gathered local ICE candidate")
                     socket.emit('voice_webrtc_ice_candidate', { sessionId, candidate: event.candidate })
                 }
             }
 
             // Handle incoming remote audio stream
             pc.ontrack = event => {
+                console.log("[WebRTC Agent] Received remote track")
                 if (remoteAudioRef.current && event.streams[0]) {
                     remoteAudioRef.current.srcObject = event.streams[0]
                     // Force play in case of browser autoplay policies
