@@ -412,6 +412,10 @@ io.on('connection', (socket) => {
     socket.on('voice_webrtc_ice_candidate', ({ sessionId, candidate }) => {
         socket.to(`voice-${sessionId}`).emit('voice_webrtc_ice_candidate', { sessionId, candidate });
     });
+
+    socket.on('voice_request_offer', ({ sessionId }) => {
+        socket.to(`voice-${sessionId}`).emit('voice_request_offer', { sessionId });
+    });
 });
 
 // --- REST Endpoints ---

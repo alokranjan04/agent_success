@@ -276,6 +276,8 @@ const VoiceAgent: React.FC = () => {
         setAiCoaching(null)
 
         socket.emit('voice_start', { sessionId, callerName })
+        console.log("[WebRTC Agent] Emitting voice_request_offer")
+        socket.emit('voice_request_offer', { sessionId })
 
         // Start timer
         timerRef.current = setInterval(() => setCallTimer(t => t + 1), 1000)
@@ -416,7 +418,7 @@ const VoiceAgent: React.FC = () => {
     return (
         <div className="flex flex-col h-screen bg-slate-50 text-slate-900 font-sans overflow-hidden">
             {/* Hidden audio element to play the remote customer's voice via WebRTC */}
-            <audio ref={remoteAudioRef} autoPlay />
+            <audio ref={remoteAudioRef} autoPlay playsInline className="hidden" />
 
             {/* ─── Top Nav ─── */}
             <header className="h-14 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-6 shrink-0 shadow-sm z-30">
