@@ -151,6 +151,8 @@ const VoiceCustomer: React.FC = () => {
             pc.ontrack = event => {
                 if (remoteAudioRef.current && event.streams[0]) {
                     remoteAudioRef.current.srcObject = event.streams[0]
+                    // Force play in case of browser autoplay policies
+                    remoteAudioRef.current.play().catch(e => console.error("Agent playback error:", e))
                 }
             }
         } catch (err) {
@@ -172,6 +174,17 @@ const VoiceCustomer: React.FC = () => {
 
         // If no URL session, create a new one
         if (!urlSession) socket.emit('voice_start', { sessionId, callerName: 'Customer' })
+
+        // ── WEBRTC: Customer creates the Offer to send to the Agent ──
+        if (peerConnectionRef.current) {
+            try {
+                const offer = await peerConnectionRef.current.createOffer()
+                await peerConnectionRef.current.setLocalDescription(offer)
+                socket.emit('voice_webrtc_offer', { sessionId: urlSession || sessionId, offer })
+            } catch (err) {
+                console.error("Error creating WebRTC offer on Customer side:", err)
+            }
+        }
 
         timerRef.current = setInterval(() => setCallTimer(t => t + 1), 1000)
 

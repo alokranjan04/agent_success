@@ -230,13 +230,13 @@ const VoiceAgent: React.FC = () => {
             pc.ontrack = event => {
                 if (remoteAudioRef.current && event.streams[0]) {
                     remoteAudioRef.current.srcObject = event.streams[0]
+                    // Force play in case of browser autoplay policies
+                    remoteAudioRef.current.play().catch(e => console.error("Customer playback error:", e))
                 }
             }
 
-            // Create an offer to start the connection
-            const offer = await pc.createOffer()
-            await pc.setLocalDescription(offer)
-            socket.emit('voice_webrtc_offer', { sessionId, offer })
+            // DO NOT create an offer here. The Agent waits for the Customer to send an offer
+            // since the Agent is the one receiving the dial-in connection.
 
         } catch (err) {
             console.error("Failed to get local audio:", err)
