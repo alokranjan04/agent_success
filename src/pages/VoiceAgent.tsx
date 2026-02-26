@@ -447,7 +447,7 @@ const VoiceAgent: React.FC = () => {
                     <a href="/customer" target="_blank" className="text-[10px] md:text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Customer</a>
                     <button
                         onClick={() => setShowMobileCoaching(!showMobileCoaching)}
-                        className="xl:hidden p-1.5 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors"
+                        className="lg:hidden p-1.5 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors"
                         title="Toggle Coaching"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -625,7 +625,7 @@ const VoiceAgent: React.FC = () => {
                 </div>
 
                 {/* ─── Coaching Sidebar — desktop version ─── */}
-                <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden xl:flex flex-col gap-5">
+                <aside className="w-[320px] bg-slate-50 border-l border-slate-200 overflow-y-auto px-5 py-5 shrink-0 hidden lg:flex flex-col gap-5">
                     <SidebarContent
                         aiLoading={aiLoading}
                         aiError={aiError}
@@ -641,7 +641,7 @@ const VoiceAgent: React.FC = () => {
 
                 {/* ─── Coaching Sidebar — Mobile/Tablet Drawer ─── */}
                 <div
-                    className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity xl:hidden ${showMobileCoaching ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity lg:hidden ${showMobileCoaching ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     onClick={() => setShowMobileCoaching(false)}
                 >
                     <aside
