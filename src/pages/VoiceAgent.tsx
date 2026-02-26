@@ -722,13 +722,66 @@ const SidebarContent: React.FC<{
 }> = ({ aiLoading, aiError, aiCoaching, knowledgeSnippets, smartReplies, speakReply, callActive, ttsPlaying, apiUrl }) => {
     return (
         <>
+            {/* VIP Customer Profile (Mock CRM) */}
+            <section className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden shrink-0">
+                <div className="bg-gradient-to-r from-[#00aa6c] to-[#007b4e] px-4 py-3 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                            <span className="text-xl">🦉</span>
+                        </div>
+                        <div>
+                            <h3 className="text-white font-bold text-sm leading-tight">Sarah Jenkins</h3>
+                            <p className="text-[#a4e5c7] text-[10px] font-black uppercase tracking-widest">Tripadvisor Plus</p>
+                        </div>
+                    </div>
+                    <div className="text-right">
+                        <p className="text-white font-bold text-sm">42</p>
+                        <p className="text-[#a4e5c7] text-[9px] uppercase tracking-wider font-bold">Reviews</p>
+                    </div>
+                </div>
+                <div className="p-4 space-y-3">
+                    <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200">
+                            <span className="text-sm">🏨</span>
+                        </div>
+                        <div>
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Upcoming Stay</p>
+                            <p className="text-xs font-bold text-slate-700">Rome Cavalieri, A Waldorf Astoria Hotel</p>
+                            <p className="text-[11px] font-medium text-slate-500 mt-0.5">Oct 14 - Oct 18 • 4 nights</p>
+                            <div className="mt-2 flex gap-2">
+                                <span className="px-2 py-0.5 bg-rose-50 text-rose-600 rounded text-[9px] font-bold border border-rose-100">Cancellation Risk: High</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* AI Status */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mt-2">
                 <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">Live Coaching</span>
                 <div className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-[9px] font-bold ${aiLoading ? 'bg-amber-50 text-amber-600' : aiError ? 'bg-rose-50 text-rose-500' : aiCoaching ? 'bg-emerald-50 text-emerald-600' : 'bg-slate-100 text-slate-400'}`}>
                     {aiLoading ? 'Thinking...' : aiError ? 'Error' : aiCoaching ? 'Gemini✨' : 'Waiting'}
                 </div>
             </div>
+
+            {/* Quick Actions (Mock) */}
+            <section>
+                <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-400">⚡ Quick Actions</h3>
+                    <span className="text-[9px] text-slate-400 font-medium">1-Click Resolution</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                    <button className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 text-slate-600 transition-all text-[10px] font-bold text-center gap-1">
+                        <span className="text-sm">📧</span> Resend Itinerary
+                    </button>
+                    <button className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 transition-all text-[10px] font-bold text-center gap-1">
+                        <span className="text-sm">❌</span> Cancel & Refund
+                    </button>
+                    <button className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 text-slate-600 transition-all text-[10px] font-bold text-center gap-1 col-span-2">
+                        <span className="text-sm">🔄</span> Modify Dates (Penalty Free)
+                    </button>
+                </div>
+            </section>
 
             {/* Next Action */}
             <section>
@@ -789,11 +842,36 @@ const SidebarContent: React.FC<{
 
             {/* Escalation Risk */}
             {aiCoaching && (
-                <section>
-                    <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Risk: {aiCoaching.escalationRisk}%</h3>
-                    <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                        <div className="h-full bg-red-500 transition-all duration-500" style={{ width: `${aiCoaching.escalationRisk}%` }} />
+                <section className={`p-4 rounded-xl border transition-all ${aiCoaching.escalationRisk > 70 ? 'bg-rose-50 border-rose-200 shadow-sm shadow-rose-100' : 'bg-white border-slate-200'}`}>
+                    <div className="flex items-center justify-between mb-3">
+                        <h3 className={`text-[10px] font-bold uppercase tracking-widest ${aiCoaching.escalationRisk > 70 ? 'text-rose-600' : 'text-slate-400'}`}>
+                            Escalation Risk
+                        </h3>
+                        {aiCoaching.escalationRisk > 70 && (
+                            <span className="flex items-center gap-1 text-[9px] font-black uppercase text-rose-500 bg-rose-100 px-2 py-0.5 rounded-full animate-pulse">
+                                <span className="w-1.5 h-1.5 bg-rose-500 rounded-full"></span>
+                                Supervisor Alerted
+                            </span>
+                        )}
                     </div>
+
+                    <div className="flex items-end gap-2 mb-2">
+                        <span className={`text-2xl font-black ${aiCoaching.escalationRisk > 70 ? 'text-rose-600' : 'text-slate-700'}`}>
+                            {aiCoaching.escalationRisk}%
+                        </span>
+                    </div>
+
+                    <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div
+                            className={`h-full transition-all duration-500 ${aiCoaching.escalationRisk > 70 ? 'bg-rose-500' : aiCoaching.escalationRisk > 40 ? 'bg-amber-400' : 'bg-emerald-400'}`}
+                            style={{ width: `${aiCoaching.escalationRisk}%` }}
+                        />
+                    </div>
+                    {aiCoaching.escalationRisk > 70 && (
+                        <p className="mt-2 text-[10px] font-medium text-rose-600/80 leading-tight">
+                            Risk is critically high. Keep tone calm and offer concrete solutions from the Quick Actions above to de-escalate.
+                        </p>
+                    )}
                 </section>
             )}
         </>
